@@ -48,7 +48,17 @@ public class Game{
     //return a random adventurer (choose between all available subclasses)
     //feel free to overload this method to allow specific names/stats.
     public static Adventurer createRandomAdventurer(){
-      return new CodeWarrior("Bob"+(int)(Math.random()*100));
+      int n = (int)(Math.random() * 4);
+      if (n == 0) {
+        return new CodeWarrior("grandma");
+        //these return statements are placeholders until the other classes are made
+      }
+      else if (n == 1) {
+        return new CodeWarrior("middle aged man");
+      }
+      else {
+        return new CodeWarrior("baby");
+      }
     }
 
     /*Display a List of 2-4 adventurers on the rows row through row+3 (4 rows max)
