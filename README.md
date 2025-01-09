@@ -30,8 +30,7 @@ Make a clear list of features that work/dont work
 
 | Move Category | Move Description                                                             |
 | :------------ | :--------------------------------------------------------------------------- |
-| Attack        | - Hits opponent with rolling pin <br>                                        |
-|               | - Does 8 damage                                                              |
+| Attack        | - Hits opponent with rolling pin <br />- Does 8 damage                       |
 | Special       | - Consumes cookies to get a hyper attack <br>                                |
 |               | - Deals damage equal to SP * 4                                               |
 | Support(self) | - Bakes cookies <br>                                                         |
