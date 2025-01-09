@@ -25,7 +25,7 @@ Make a clear list of features that work/dont work
 | Vue.js               | Nest.js      | Redis       |
 
 ### Grandma subclass
- - Initial HP: 20/20
+ - Initial HP: 15/15
  - Initial SP: 0/4 cookies
 
 | Move Category | Move Description                                                                                                                                                                 |
@@ -36,7 +36,7 @@ Make a clear list of features that work/dont work
 | Support(ally) | - Tells final words <br />- 75% chance to increase allies damage by 50% for 2 turns <br />- 25% chance to set hp to 0 and make allies take 50% less damage and do 50% more damage permanently |
 
 ### Middle Aged Man subclass
-- Initial HP: 30/30
+- Initial HP: 25/25
 - Initial SP: 5/5 coffee
 
 | Move Category | Move Description                                                                                                                                                     |
@@ -47,8 +47,12 @@ Make a clear list of features that work/dont work
 | Support(ally) | - Works overtime <br />- Deals 6 damage to self <br />- Allies take 50% less damage for 1 turn                                                                       |
 
 ### Baby subclass
-| Move Category |
-| Attack        |
-| Special       |
-| Support(self) |
-| Support(ally) |
+- Initial HP: 18/18
+- Initial SP: 6/6 spit
+
+| Move Category | Move Description                                                                                                                                                     |
+| :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Attack        | - Bites opponent <br />- Does 6 damage                                                                                                                               |
+| Special       | - Spits into opponent's face <br />- Deals 4 damage <br />- The opponent has a 75% chance to miss their attack/special in the next 2 turns <br />- Removes 1 SP      |
+| Support(self) | - Crawls to dodge <br />- 80% chance to dodge next attack (does not go away until next attack aimed at baby)                                                         |
+| Support(ally) | - Cries <br />- Allies do 50% more damage for 1 turn <br />- Opponents do 50% less damage for 1 turn                                                                 |
