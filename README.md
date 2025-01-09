@@ -28,17 +28,12 @@ Make a clear list of features that work/dont work
  - Initial HP: 20/20
  - Initial SP: 0/4 cookies
 
-| Move Category | Move Description                                                             |
-| :------------ | :--------------------------------------------------------------------------- |
-| Attack        | - Hits opponent with rolling pin <br />- Does 8 damage                       |
-| Special       | - Consumes cookies to get a hyper attack <br>                                |
-|               | - Deals damage equal to SP * 4                                               |
-| Support(self) | - Bakes cookies <br>                                                         |
-|               | - Heal 4 hp                                                                  |
-|               | - Gain 1 cookie                                                              |
-| Support(ally) | - Tells final words to allies <br>                                           |
-|               | - 75% chance to increase allies damage by 25%                                |
-|               | - 25% set hp to 0 and give allies 200% damage resistance and 50% damage buff |
+| Move Category | Move Description                                                                                                                                                     |
+| :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Attack        | - Hits opponent with rolling pin <br />- Does 8 damage                                                                                                               |
+| Special       | - Consumes cookies to get a hyper attack <br />- Deals damage equal to SP * 4                                                                                        |
+| Support(self) | - Bakes cookies <br />- Heal 4 hp <br />- Gain 1 cookie                                                                                                              |
+| Support(ally) | - Tells final words to allies <br />- 75% chance to increase allies damage by 25% <br />- 25% set hp to 0 and give allies 200% damage resistance and 50% damage buff |
 
 ### Middle Aged Man subclass
 | Move Category |
