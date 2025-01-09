@@ -27,8 +27,9 @@ Make a clear list of features that work/dont work
 ### Grandma subclass
  - Initial HP: 20/20
  - Initial SP: 0/4 cookies
+
 | Move Category | Move Description                                                             |
-|:------------- |:-------------                                                                |
+| :------------ | :--------------------------------------------------------------------------- |
 | Attack        | - Hits opponent with rolling pin.                                            |
 |               | - Does 8 damage                                                              |
 | Special       | - Consumes cookies to get a hyper attack                                     |
