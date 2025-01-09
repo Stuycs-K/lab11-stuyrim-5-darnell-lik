@@ -18,12 +18,6 @@ Make a clear list of features that work/dont work
 
 ## Adventurer Subclasses
 
-| Left Align (default) | Center Align | Right Align |
-| :------------------- | :----------: | ----------: |
-| React.js             | Node.js      | MySQL       |
-| Next.js              | Express      | MongoDB     |
-| Vue.js               | Nest.js      | Redis       |
-
 ### Grandma subclass
  - Initial HP: 15/15
  - Initial SP: 0/4 cookies
