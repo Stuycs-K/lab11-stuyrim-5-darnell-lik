@@ -32,8 +32,8 @@ Make a clear list of features that work/dont work
 | :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Attack        | - Hits opponent with rolling pin <br />- Does 8 damage                                                                                                                           |
 | Special       | - Consumes cookies to get a hyper attack <br />- Deals damage equal to SP * 4 <br />- Sets SP to 0                                                                               |
-| Support(self) | - Bakes cookies <br />- Heal 4 hp <br />- Gain 1 cookie                                                                                                                          |
-| Support(ally) | - Tells final words <br />- 75% chance to increase allies damage by 50% for 2 turns <br />- 25% chance to set hp to 0 and give allies 200% damage resistance and 50% damage buff |
+| Support(self) | - Bakes cookies <br />- Heal 4 hp <br />- Gain 1 SP                                                                                                                              |
+| Support(ally) | - Tells final words <br />- 75% chance to increase allies damage by 50% for 2 turns <br />- 25% chance to set hp to 0 and make allies take 50% less damage and do 50% more damage permanently |
 
 ### Middle Aged Man subclass
 - Initial HP: 30/30
