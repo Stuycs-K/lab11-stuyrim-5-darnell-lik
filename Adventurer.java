@@ -37,10 +37,10 @@ public abstract class Adventurer{
    * for more flexible targetting.
    */
   //heal or buff the party
-  //public abstract String support(ArrayList<Adventurer> others);
+  public abstract String support(ArrayList<Adventurer> others);
 
   //heal or buff the target adventurer
-  public abstract String support(Adventurer other);
+  //public abstract String support(Adventurer other);
 
   //heal or buff self
   public abstract String support();
