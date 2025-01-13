@@ -46,6 +46,9 @@ public class Baby extends Adventurer{
     return "The baby crawls and has an 80% chance to dodge";
   }
 
-  //hurt or hinder the target adventurer, consume some special resource
-  public String specialAttack(Adventurer other);
-}
+  public String specialAttack(Adventurer other){
+    saliva --;
+    int damage = 4;
+    other.applyDamage(damage);
+    //Im not sure how to implement possible miss
+  }
