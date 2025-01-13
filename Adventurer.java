@@ -55,12 +55,13 @@ public abstract class Adventurer{
   standard methods
   */
   public void applyReducedDamage(int rounds)
-  {true
+  //not entirely sure what's going on here
+  {//true
     resistance = rounds;
   }
   public void Dodge(int rounds, double chance)
   {
-    chanceToMiss = rounds
+    chanceToMiss = rounds;
     odds = chance;
   }
   public void applyDamage(int amount){
@@ -76,6 +77,7 @@ public abstract class Adventurer{
         this.HP -= (int)(amount * 1.5);
         dmgBoost--;
       }
+    }
   }
 
   //You did it wrong if this happens.
