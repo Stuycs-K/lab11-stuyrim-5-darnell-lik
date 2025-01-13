@@ -4,18 +4,18 @@ public class MiddleAgedMan extends Adventurer{
 
   /*the other constructors ultimately call the constructor
   *with all parameters.*/
-  public CodeWarrior(String name, int hp){
+  public MiddleAgedMan(String name, int hp){
     super(name,hp);
     caffeineMax = 5;
     caffeine = 5;
     preferredLanguage = language;
   }
 
-  public CodeWarrior(String name){
+  public MiddleAgedMan(String name){
     this(name, 30);
   }
 
-  public CodeWarrior(){
+  public MiddleAgedMan(){
     this("Default");
   }
 
