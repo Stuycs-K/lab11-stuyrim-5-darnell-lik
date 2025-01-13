@@ -43,21 +43,33 @@ public class Grandma extends Adventurer{
   }
 
   //tells last words
-  public String support(ArrayList<Adventurer> others) {
+  public String support(ArrayList<Adventurer> allies) {
     int chance = (int)(Math.random() * 4);
     if (chance == 0) {
-      for (int i = 0; i < others.size(); i++) {
-        
+      setHP(0);
+      for (int i = 0; i < allies.size(); i++) {
+        //give allies resistance and dmgBoost
       }
     }
     else {
-
+      //give allies dmgBoost
     }
+    //placeholder
+    return "";
   }
 
-  //heal or buff self
-  public abstract String support();
+  //bake cookies to heal 4 and gain 1 sp
+  public String support() {
+    int hp = 4;
+    setHP(getHP()+hp);
+    return this + " baked cookies to restore " + hp + " hp and stored " + restoreSpecial(1) + "cookie(s) in reserve.";
+  }
 
-  //hurt or hinder the target adventurer, consume some special resource
-  public abstract String specialAttack(Adventurer other);
+  //consume all cookies to deal sp * 4 damage
+  public String specialAttack(Adventurer other) {
+    int damage = getSpecial() * 4;
+    other.applyDamage(damage);
+    setSpecial(0);
+    return this + " went into a frenzy after consuming their cookies in reserve to deal " + damage + " damage!";
+  }
 }
