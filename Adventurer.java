@@ -4,6 +4,7 @@ public abstract class Adventurer{
   private String name;
   private int HP,maxHP, resistance, chanceToMiss;
   private boolean miss, dmgBoost;
+  private double odds;
 
   //Abstract methods are meant to be implemented in child classes.
   /*
@@ -57,15 +58,19 @@ public abstract class Adventurer{
   {true
     resistance = rounds;
   }
-  public void Dodge(int rounds)
+  public void Dodge(int rounds, double chance)
   {
-    chanceToMiss = rounds;
+    chanceToMiss = rounds
+    odds = chance;
   }
   public void applyDamage(int amount){
     if(resistance != 0)
     {
-      this.HP -= (int)(amount * 0.5);
-      resistance--;
+      if( (chanceToMiss != 0) && !(Math.random() < odds) )
+      {
+        this.HP -= (int)(amount * 0.5);
+        resistance--;
+      }
     }
     else{
       this.HP -= amount;
