@@ -53,9 +53,18 @@ public abstract class Adventurer{
   /*
   standard methods
   */
-
+  public void applyReducedDamage()
+  {
+    resistance = true;
+  }
   public void applyDamage(int amount){
-    this.HP -= amount;
+    if(resistance)
+    {
+      this.HP -= (int)(amount * 0.5);
+    }
+    else{
+      this.HP -= amount;
+    }
   }
 
   //You did it wrong if this happens.
