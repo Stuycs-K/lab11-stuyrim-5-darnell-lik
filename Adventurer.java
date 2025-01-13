@@ -2,8 +2,9 @@ import java.util.Random;
 import java.util.ArrayList;
 public abstract class Adventurer{
   private String name;
-  private int HP,maxHP;
-  private boolean miss, dmgBoost, resistance;
+  private int HP,maxHP, resistance, chanceToMiss;
+  private boolean miss, dmgBoost;
+  private double odds;
 
   //Abstract methods are meant to be implemented in child classes.
   /*
@@ -53,9 +54,27 @@ public abstract class Adventurer{
   /*
   standard methods
   */
-
+  public void applyReducedDamage(int rounds)
+  {true
+    resistance = rounds;
+  }
+  public void Dodge(int rounds, double chance)
+  {
+    chanceToMiss = rounds
+    odds = chance;
+  }
   public void applyDamage(int amount){
-    this.HP -= amount;
+    if(resistance != 0)
+    {
+      if( (chanceToMiss != 0) && !(Math.random() < odds) )
+      {
+        this.HP -= (int)(amount * 0.5);
+        resistance--;
+      }
+    }
+    else{
+      this.HP -= amount;
+    }
   }
 
   //You did it wrong if this happens.
