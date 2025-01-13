@@ -60,7 +60,7 @@ public abstract class Adventurer{
   }
   public void Dodge(int rounds, double chance)
   {
-    chanceToMiss = rounds
+    chanceToMiss = rounds;
     odds = chance;
   }
   public void ApplyDodge(Adventurer other, int rounds, double chance)
@@ -84,6 +84,7 @@ public abstract class Adventurer{
         this.HP -= (int)(amount * 1.5);
         dmgBoost--;
       }
+    }
   }
 
   //You did it wrong if this happens.
