@@ -38,7 +38,7 @@ public class Grandma extends Adventurer{
   //Deals 8 damage
   public String attack(Adventurer other) {
     int damage = 8;
-    other.applyDamage(damage);
+    attack(other, damage);//other.applyDamage(damage);
     return this + " hit " + other + " with their rolling pin and dealt " + damage + " damage.";
   }
 
@@ -68,7 +68,7 @@ public class Grandma extends Adventurer{
   //consume all cookies to deal sp * 4 damage
   public String specialAttack(Adventurer other) {
     int damage = getSpecial() * 4;
-    other.applyDamage(damage);
+    attack(other, damage);//other.applyDamage(damage);
     setSpecial(0);
     return this + " went into a frenzy after consuming their cookies in reserve to deal " + damage + " damage!";
   }
