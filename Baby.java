@@ -60,6 +60,8 @@ public class Baby extends Adventurer{
     saliva --;
     int damage = 4;
     other.applyDamage(damage);
+    other.AttackMiss(2);
+    other.Attack();
     //Im not sure how to implement possible miss
     return "";
   }
