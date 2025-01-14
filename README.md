@@ -50,3 +50,14 @@ Make a clear list of features that work/dont work
 | Special       | - Spits into opponent's face <br />- Deals 4 damage <br />- The opponent has a 75% chance to miss their attack/special in the next 2 turns <br />- Removes 1 SP      |
 | Support(self) | - Crawls to dodge <br />- 80% chance to dodge next attack (does not go away until next attack aimed at baby)                                                         |
 | Support(ally) | - Cries <br />- Allies do 50% more damage for 1 turn                                                                                                                 |
+
+### Death subclass
+- Initial HP: 40/40
+- Initial SP = 3/15
+
+| Move Category | Move Description                                                                                                                                                     |
+| :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Attack        | - Bites opponent <br />- Does a random amount of damage from 6 - 10                                                                                                  |
+| Special       | - Calls from his graveyard <br />- Does normal attack and deals 1 extra damage per 3 souls used (consumed from graveyard) <br />                                     |
+| Support(self) | - Calls from his graveyard <br />- Heals 10 extra damage per 5 souls used (consumed from graveyard) <br />                                                           |
+| Support(ally) | - XXXX <br />- The boss has no friends                                                                                                                               |

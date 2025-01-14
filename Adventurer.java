@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.ArrayList;
 public abstract class Adventurer{
   private String name;
-  private int HP, maxHP, resistance, chanceToMiss, dmgBoost;
+  private int HP, maxHP, resistance, chanceToMiss, dmgBoost, AttackMiss;
   private boolean miss;
   private double odds;
 
@@ -82,7 +82,12 @@ public abstract class Adventurer{
       }
     }
   }
-
+  public void attack(Adventurer other, int amount){
+    if( (AttackMiss != 0) && (Math.random() < 0.75))
+    {
+      other.applyDamage(amount);
+    }
+  }
   //You did it wrong if this happens.
   public Adventurer(){
     this("Lester-the-noArg-constructor-string");
