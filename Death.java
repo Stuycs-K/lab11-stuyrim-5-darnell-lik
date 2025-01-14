@@ -1,26 +1,23 @@
 import java.util.*;
-public class MiddleAgedMan extends Adventurer{
-  int caffeine, caffeineMax;
+public class Death extends Adventurer{
+  int graveyard, graveyardMax;
 
-  /*the other constructors ultimately call the constructor
-  *with all parameters.*/
-  public MiddleAgedMan(String name, int hp){
+  public Death(String name, int hp){
     super(name,hp);
-    caffeineMax = 5;
-    caffeine = 5;
+    graveyardMax = 5000;
+    graveyard = 105;
   }
 
-  public MiddleAgedMan(String name){
+  public Death(String name){
     this(name, 30);
   }
 
-  public MiddleAgedMan(){
-    this("Jim");
+  public Death(){
+    this("Hades");
   }
 
-  /*The next 8 methods are all required because they are abstract:*/
   public String getSpecialName(){
-    return "caffeine";
+    return "graveyard";
   }
 
   public int getSpecial(){
@@ -36,21 +33,17 @@ public class MiddleAgedMan extends Adventurer{
   }
 
   public String attack(Adventurer other){
-    int damage = 4;
+    int damage = (int) (Math.random() * 5 )+ 6;
     attack(other, damage);//other.applyDamage(damage);
     return this + " attacked "+ other + " and dealt "+ damage + " points of damage";
   }
 
   public String specialAttack(Adventurer other){
-    if(getSpecial() != 0){
-      restoreSpecial(-1);
-      int damage = 4;
-      attack(other, damage);//other.applyDamage(damage);
-      return this + " spilled coffee on "+other+ " dealing "+ damage +" points of damage and skipping their next turn!";
-    }else{
-      return "Not enough coffee to spill. Instead " + attack(other);
-    }
-
+    int souls = Math.random() + 1 * ()((graveyard - graveyard % 3) / 3 )+ 1);
+    restoreSpecial(-souls * 3);
+    int damage = 4;
+    attack(other, damage + souls);//other.applyDamage(damage);
+    return this + "called" + (souls * 3) + "souls from his graveyard"+other+ " dealing "+ damage +" points of damage and skipping their next turn!";
   }
 
   public String support(ArrayList<Adventurer> others){
