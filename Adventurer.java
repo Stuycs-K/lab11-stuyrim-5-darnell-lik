@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.ArrayList;
 public abstract class Adventurer{
   private String name;
-  private int HP,maxHP, resistance, chanceToMiss,dmgBoost;
+  private int HP, maxHP, resistance, chanceToMiss, dmgBoost;
   private boolean miss;
   private double odds;
 
@@ -54,21 +54,17 @@ public abstract class Adventurer{
   /*
   standard methods
   */
-  public void applyReducedDamage(int rounds)
-  {
-    resistance = rounds;
+  public void applyReducedDamage(int rounds){
+    this.resistance = rounds;
   }
-  public void Dodge(int rounds, double chance)
-  {
+  public void dodge(int rounds, double chance){
     chanceToMiss = rounds;
     odds = chance;
   }
-  public void ApplyDodge(Adventurer other, int rounds, double chance)
-  {
-    other.Dodge(rounds, chance)
+  public void applyDodge(Adventurer other, int rounds, double chance){
+    other.dodge(rounds, chance);
   }
-  public void BoostDamage(int rounds)
-  {
+  public void boostDamage(int rounds){
     dmgBoost = rounds;
   }
   public void applyDamage(int amount){
@@ -100,6 +96,11 @@ public abstract class Adventurer{
     this.name = name;
     this.HP = hp;
     this.maxHP = hp;
+    this.dmgBoost = 0;
+    this.chanceToMiss = 0;
+    this.resistance = 0;
+    this.miss = false;
+    this.odds = 0.0;
   }
 
   //toString method

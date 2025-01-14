@@ -15,6 +15,20 @@ public class Game{
     /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
     //YOUR CODE HERE
     /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    Text.go(1, 1);
+    for (int i = 0; i < 80; i++) {
+      Text.colorize("+", BORDER_BACKGROUND);
+    }
+    for (int i = 1; i < 31; i++) {
+      Text.go(i, 1);
+      Text.colorize("+", BORDER_BACKGROUND);
+      Text.go(i, 81);
+      Text.colorize("+", BORDER_BACKGROUND);
+    }
+    Text.go(30, 1);
+    for (int i = 0; i < 80; i++) {
+      Text.colorize("+", BORDER_BACKGROUND);
+    }
   }
 
   //Display a line of text starting at
@@ -51,13 +65,16 @@ public class Game{
       int n = (int)(Math.random() * 4);
       if (n == 0) {
         return new CodeWarrior("grandma");
+        return new Grandma("grandma");
         //these return statements are placeholders until the other classes are made
       }
       else if (n == 1) {
         return new CodeWarrior("middle aged man");
+        return new MiddleAgedMan("middle aged man");
       }
       else {
         return new CodeWarrior("baby");
+        return new Baby("baby");
       }
     }
 

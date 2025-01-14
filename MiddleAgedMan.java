@@ -8,7 +8,6 @@ public class MiddleAgedMan extends Adventurer{
     super(name,hp);
     caffeineMax = 5;
     caffeine = 5;
-    preferredLanguage = language;
   }
 
   public MiddleAgedMan(String name){
@@ -54,11 +53,10 @@ public class MiddleAgedMan extends Adventurer{
 
   }
 
-  public String support(Adventurer other){
-    String result = this + "works overtime to help his team dealing 6 damage to himself but makes each teamates take 50% less damage";
-    for(other : others)
-    {
-      other.applyReducedDamage();
+  public String support(ArrayList<Adventurer> others){
+    String result = this + "works overtime to help his team dealing 6 damage to himself but makes each teammate take 50% less damage";
+    for(int i = 0; i < others.size(); i++){
+      others.get(i).applyReducedDamage(1);
     }
     return result;
   }

@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 public class Baby extends Adventurer{
   int saliva, salivaMax;
   //give it a short name (fewer than 13 characters)
@@ -11,7 +12,7 @@ public class Baby extends Adventurer{
   public int getSpecialMax() {
     return salivaMax;
   }
-  public abstract void setSpecial(int n) {
+  public void setSpecial(int n) {
     saliva = n;
   }
 
@@ -23,15 +24,15 @@ public class Baby extends Adventurer{
 
   public String support(ArrayList<Adventurer> team, ArrayList<Adventurer> enemies){
     String returnString = this + "cries loudly and";
-    for(Adventurer teamate : team)
+    for(Adventurer teammate : team)
     {
-      teamate.BoostDamage(1);
-      returnString += "boosts " + teamate +"'s damage by 1.5x";
+      teammate.boostDamage(1);
+      returnString += "boosts " + teammate +"'s damage by 1.5x";
     }
     returnString += "and ";
     for(Adventurer enemy : enemies)
     {
-      enemies.applyReducedDamage(1);
+      enemy.applyReducedDamage(1);
       returnString += "reduced " + enemies +"'s damage by 0.5x";
     }
     return returnString;
@@ -42,7 +43,7 @@ public class Baby extends Adventurer{
 
   //heal or buff self
   public String support(){
-    Dodge(1, 0.80);
+    dodge(1, 0.80);
     return "The baby crawls and has an 80% chance to dodge";
   }
 
@@ -52,3 +53,4 @@ public class Baby extends Adventurer{
     other.applyDamage(damage);
     //Im not sure how to implement possible miss
   }
+}
