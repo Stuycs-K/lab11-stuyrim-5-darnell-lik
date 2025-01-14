@@ -49,4 +49,4 @@ Make a clear list of features that work/dont work
 | Attack        | - Bites opponent <br />- Does 6 damage                                                                                                                               |
 | Special       | - Spits into opponent's face <br />- Deals 4 damage <br />- The opponent has a 75% chance to miss their attack/special in the next 2 turns <br />- Removes 1 SP      |
 | Support(self) | - Crawls to dodge <br />- 80% chance to dodge next attack (does not go away until next attack aimed at baby)                                                         |
-| Support(ally) | - Cries <br />- Allies do 50% more damage for 1 turn <br />- Opponents do 50% less damage for 1 turn                                                                 |
+| Support(ally) | - Cries <br />- Allies do 50% more damage for 1 turn                                                                                                                 |
