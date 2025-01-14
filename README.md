@@ -54,6 +54,7 @@ Make a clear list of features that work/dont work
 ### Death subclass
 - Initial HP: 40/40
 - Initial SP = 3/15
+
 | Move Category | Move Description                                                                                                                                                     |
 | :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Attack        | - Bites opponent <br />- Does a random amount of damage from 6 - 10                                                                                                  |
