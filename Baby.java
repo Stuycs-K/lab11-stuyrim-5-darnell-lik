@@ -33,7 +33,7 @@ public class Baby extends Adventurer{
 
   public String attack(Adventurer other){
     int damage = 6;
-    other.applyDamage(damage);
+    attack(other, damage);//other.applyDamage(damage);
     return this + " bit " + other + " and dealt " + damage + " damage.";
   }
 
@@ -59,9 +59,8 @@ public class Baby extends Adventurer{
   public String specialAttack(Adventurer other){
     saliva --;
     int damage = 4;
-    other.applyDamage(damage);
+    attack(other, damage);
     other.AttackMiss(2);
-    other.Attack();
     //Im not sure how to implement possible miss
     return "";
   }
