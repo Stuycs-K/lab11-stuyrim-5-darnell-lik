@@ -49,9 +49,19 @@ public class Game{
   *@param height the number of rows
   */
   public static void TextBox(int row, int col, int width, int height, String text){
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    int nextRow = 1;
+    int nextCol = 1;
+    String empty = "                                                                                        ".substring(0, width);
+    for (int i = 0; i < height; i++) {
+      drawText(empty, row + i, col);
+    }
+    System.out.println(text.length() / width);
+    for (int i = 0; i < text.length() / width; i++) {
+      drawText(text.substring(0,width + 1),row + i, col);
+      text = text.substring(width + 1);
+      nextRow++;
+    }
+    drawText(text, nextRow, col);
   }
 
 
