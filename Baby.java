@@ -1,11 +1,26 @@
 import java.util.ArrayList;
 public class Baby extends Adventurer{
   int saliva, salivaMax;
-  //give it a short name (fewer than 13 characters)
+
+  //constructors
+  public Baby(String name, int hp){
+    super(name,hp);
+    salivaMax = 6;
+    saliva = 6;
+  }
+
+  public Baby(String name){
+    this(name,18);
+  }
+
+  public Baby(){
+    this("Daniel");
+  }
+
+  //accessor methods
   public String getSpecialName() {
     return "saliva";
   }
-  //accessor methods
   public int getSpecial() {
     return saliva;
   }
@@ -22,18 +37,12 @@ public class Baby extends Adventurer{
     return this + " bit " + other + " and dealt " + damage + " damage.";
   }
 
-  public String support(ArrayList<Adventurer> team, ArrayList<Adventurer> enemies){
+  public String support(ArrayList<Adventurer> team){
     String returnString = this + "cries loudly and";
     for(Adventurer teammate : team)
     {
       teammate.boostDamage(1);
       returnString += "boosts " + teammate +"'s damage by 1.5x";
-    }
-    returnString += "and ";
-    for(Adventurer enemy : enemies)
-    {
-      enemy.applyReducedDamage(1);
-      returnString += "reduced " + enemies +"'s damage by 0.5x";
     }
     return returnString;
   }
@@ -52,5 +61,6 @@ public class Baby extends Adventurer{
     int damage = 4;
     other.applyDamage(damage);
     //Im not sure how to implement possible miss
+    return "";
   }
 }
