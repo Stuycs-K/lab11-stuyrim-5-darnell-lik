@@ -1,4 +1,4 @@
-public Class Baby {
+public class Baby extends Adventurer{
   int saliva, salivaMax;
   //give it a short name (fewer than 13 characters)
   public String getSpecialName() {
@@ -15,25 +15,40 @@ public Class Baby {
     saliva = n;
   }
 
-  /*
-  all adventurers must have a way to attack enemies and
-  support their allys
-  */
-  //hurt or hinder the target adventurer
-  public abstract String attack(Adventurer other);
+  public String attack(Adventurer other){
+    int damage = 6;
+    other.applyDamage(damage);
+    return this + " bit " + other + " and dealt " + damage + " damage.";
+  }
 
-  /*This is an example of an improvement that you can make to allow
-   * for more flexible targetting.
-   */
-  //heal or buff the party
-  public abstract String support(ArrayList<Adventurer> others);
+  public String support(ArrayList<Adventurer> team, ArrayList<Adventurer> enemies){
+    String returnString = this + "cries loudly and";
+    for(Adventurer teamate : team)
+    {
+      teamate.BoostDamage(1);
+      returnString += "boosts " + teamate +"'s damage by 1.5x";
+    }
+    returnString += "and ";
+    for(Adventurer enemy : enemies)
+    {
+      enemies.applyReducedDamage(1);
+      returnString += "reduced " + enemies +"'s damage by 0.5x";
+    }
+    return returnString;
+  }
 
   //heal or buff the target adventurer
   //public abstract String support(Adventurer other);
 
   //heal or buff self
-  public abstract String support();
+  public String support(){
+    Dodge(1, 0.80);
+    return "The baby crawls and has an 80% chance to dodge";
+  }
 
-  //hurt or hinder the target adventurer, consume some special resource
-  public abstract String specialAttack(Adventurer other);
-}
+  public String specialAttack(Adventurer other){
+    saliva --;
+    int damage = 4;
+    other.applyDamage(damage);
+    //Im not sure how to implement possible miss
+  }

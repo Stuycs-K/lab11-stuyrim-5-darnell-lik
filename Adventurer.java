@@ -55,14 +55,21 @@ public abstract class Adventurer{
   standard methods
   */
   public void applyReducedDamage(int rounds)
-  //not entirely sure what's going on here
-  {//true
+  {
     resistance = rounds;
   }
   public void Dodge(int rounds, double chance)
   {
     chanceToMiss = rounds;
     odds = chance;
+  }
+  public void ApplyDodge(Adventurer other, int rounds, double chance)
+  {
+    other.Dodge(rounds, chance)
+  }
+  public void BoostDamage(int rounds)
+  {
+    dmgBoost = rounds;
   }
   public void applyDamage(int amount){
     if( (chanceToMiss != 0) && !(Math.random() < odds) )
