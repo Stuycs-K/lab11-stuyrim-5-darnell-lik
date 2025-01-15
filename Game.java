@@ -49,19 +49,37 @@ public class Game{
   *@param height the number of rows
   */
   public static void TextBox(int row, int col, int width, int height, String text){
-    int nextRow = 1;
-    int nextCol = 1;
+    //separates the text into individual words
+    String[] words = text.split(" ");
+    for (int i = 0; i < words.length; i++) {
+      System.out.println(words[i]);
+    }
+    int nextRow = row;
     String empty = "                                                                                        ".substring(0, width);
+    // tested this for loop, it works properly
     for (int i = 0; i < height; i++) {
       drawText(empty, row + i, col);
     }
-    System.out.println(text.length() / width);
-    for (int i = 0; i < text.length() / width; i++) {
-      drawText(text.substring(0,width + 1),row + i, col);
-      text = text.substring(width + 1);
-      nextRow++;
+    //int ogLength = text.length();
+    String line = "";
+    String testLine = "";
+    for (int i = 0; i < words.length; i++) {
+      testLine = line + " " + words[i];
+      if (testLine.length() < width) {
+        line = line + " " + words[i];
+      }
+      else {
+        drawText(line, row, col);
+        row++;
+        line = "";
+      }
     }
-    drawText(text, nextRow, col);
+    /*for (int i = 0; i < ogLength / width; i++) {
+      drawText(text.substring(0, width), row + i, col);
+      text = text.substring(width);
+      nextRow++;
+    }*/
+    //drawText(text, nextRow, col);
   }
 
 
