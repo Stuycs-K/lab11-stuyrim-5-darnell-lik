@@ -39,10 +39,16 @@ public class Death extends Adventurer{
   }
 
   public String specialAttack(Adventurer other){
-    int souls = (getSpecial() >= 3) ? Math.random() + 1 * (((getSpecial() - getSpecial() % 3) / 3 )+ 1):0;
-    restoreSpecial(-souls * 3);
-    String temp = attack(other, damage + souls);//other.applyDamage(damage);
-    return this + "called" + (souls * 3) + "souls from his graveyard dealing an extra "+ souls +"points of damage" + temp;
+    if(getSpecial() >= 3)
+    {
+      int souls = Math.random() + 1 * (((getSpecial() - getSpecial() % 3) / 3 )+ 1);
+      restoreSpecial(-souls * 3);
+      String temp = attack(other, damage + souls);//other.applyDamage(damage);
+      return this + "called" + (souls * 3) + "souls from his graveyard dealing an extra "+ souls +"points of damage" + temp;
+    }
+    else{
+      return "Not enough Souls. Instead " + attack(other);
+    }
   }
 
 /*  public String support(ArrayList<Adventurer> others){
@@ -50,9 +56,16 @@ public class Death extends Adventurer{
   */
 
   public String support(){
-    int souls = (getSpecial() >= 5) ? Math.random() + 1 * (((getSpecial() - getSpecial() % 5) / 5 )+ 1):0;
-    setHP(getHP()+10*souls);
-    restoreSpecial(-souls * 5);
-    return this+" eats" + souls * 5 + "souls to heal" + 10 * souls +" HP";
-  }
+    if(getSpecial() >= 3)
+    {
+      int souls = (getSpecial() >= 5) ? Math.random() + 1 * (((getSpecial() - getSpecial() % 5) / 5 )+ 1):0;
+      setHP(getHP()+10*souls);
+      restoreSpecial(-souls * 5);
+      return this+" eats" + souls * 5 + "souls to heal" + 10 * souls +" HP";
+    }
+    else{
+      setHP(getHP + 5);
+      restoreSpecial(-graveyard);
+      return "Not enough souls in graveyard, all are sacrificed and 5 HP is gained";
+    }
 }
