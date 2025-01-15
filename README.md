@@ -57,7 +57,7 @@ Make a clear list of features that work/dont work
 
 | Move Category | Move Description                                                                                                                                                     |
 | :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Attack        | - Bites opponent <br />- Does a random amount of damage from 6 - 10                                                                                                  |
+| Attack        | - Attacks opponent with scythe  <br />- Does a random amount of damage from 6 - 10                                                                                                  |
 | Special       | - Calls from his graveyard <br />- Does normal attack and deals 1 extra damage per 3 souls used (consumed from graveyard) <br />                                     |
 | Support(self) | - Calls from his graveyard <br />- Heals 10 extra damage per 5 souls used (consumed from graveyard) <br />                                                           |
 | Support(ally) | - XXXX <br />- The boss has no friends                                                                                                                               |
