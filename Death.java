@@ -39,20 +39,15 @@ public class Death extends Adventurer{
   }
 
   public String specialAttack(Adventurer other){
-    int souls = Math.random() + 1 * ()((graveyard - graveyard % 3) / 3 )+ 1);
+    int souls = (graveyard >= 3) ? Math.random() + 1 * (((graveyard - graveyard % 3) / 3 )+ 1):0;
     restoreSpecial(-souls * 3);
-    int damage = 4;
-    attack(other, damage + souls);//other.applyDamage(damage);
-    return this + "called" + (souls * 3) + "souls from his graveyard"+other+ " dealing "+ damage +" points of damage and skipping their next turn!";
+    String temp = attack(other, damage + souls);//other.applyDamage(damage);
+    return this + "called" + (souls * 3) + "souls from his graveyard dealing an extra "+ souls +"points of damage" + temp;
   }
 
-  public String support(ArrayList<Adventurer> others){
-    String result = this + "works overtime to help his team dealing 6 damage to himself but makes each teammate take 50% less damage";
-    for(int i = 0; i < others.size(); i++){
-      others.get(i).applyReducedDamage(1);
-    }
-    return result;
+/*  public String support(ArrayList<Adventurer> others){
   }
+  */
 
   public String support(){
     int hp = 8;
