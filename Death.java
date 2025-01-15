@@ -4,8 +4,8 @@ public class Death extends Adventurer{
 
   public Death(String name, int hp){
     super(name,hp);
-    graveyardMax = 5000;
-    graveyard = 105;
+    graveyardMax = 15;
+    graveyard = 3;
   }
 
   public Death(String name){
@@ -39,7 +39,7 @@ public class Death extends Adventurer{
   }
 
   public String specialAttack(Adventurer other){
-    int souls = (graveyard >= 3) ? Math.random() + 1 * (((graveyard - graveyard % 3) / 3 )+ 1):0;
+    int souls = (getSpecial() >= 3) ? Math.random() + 1 * (((getSpecial() - getSpecial() % 3) / 3 )+ 1):0;
     restoreSpecial(-souls * 3);
     String temp = attack(other, damage + souls);//other.applyDamage(damage);
     return this + "called" + (souls * 3) + "souls from his graveyard dealing an extra "+ souls +"points of damage" + temp;
@@ -50,9 +50,9 @@ public class Death extends Adventurer{
   */
 
   public String support(){
-    int hp = 8;
-    setHP(getHP()+hp);
-    if(getSpecial() != 0) restoreSpecial(-1);
-    return this+" drinks a coffee and heals " +hp+" HP";
+    int souls = (getSpecial() >= 5) ? Math.random() + 1 * (((getSpecial() - getSpecial() % 5) / 5 )+ 1):0;
+    setHP(getHP()+10*souls);
+    restoreSpecial(-souls * 5);
+    return this+" eats" + souls * 5 + "souls to heal" + 10 * souls +" HP";
   }
 }
