@@ -51,6 +51,7 @@ public class Game{
   public static void TextBox(int row, int col, int width, int height, String text){
     //separates the text into individual words
     String[] words = text.split(" ");
+    //dashes are here for testing, replace with spaces for final
     String empty = " --------------------------------------------------------".substring(0, width);
     // tested this for loop, it works properly
     for (int i = 0; i < height; i++) {
@@ -115,10 +116,17 @@ public class Game{
     * ***THIS ROW INTENTIONALLY LEFT BLANK***
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
+      TextBox(startRow, 2, 26, 1, party.get(0).getName());
+      TextBox(startRow + 1, 2, 26, 1, "HP: " + party.get(0).getHP());
+      TextBox(startRow + 2, 2, 26, 1, party.get(0).getSpecialName() + ": " + party.get(0).getSpecial() + "/" + party.get(0).getSpecialMax());
 
-      /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-      //YOUR CODE HERE
-      /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+      TextBox(startRow, 28, 26, 1, party.get(1).getName());
+      TextBox(startRow + 1, 28, 26, 1, "HP: " + party.get(1).getHP());
+      TextBox(startRow + 2, 28, 26, 1, party.get(1).getSpecialName() + ": " + party.get(1).getSpecial() + "/" + party.get(1).getSpecialMax());
+
+      TextBox(startRow, 54, 26, 1, party.get(2).getName());
+      TextBox(startRow + 1, 54, 26, 1, "HP: " + party.get(2).getHP());
+      TextBox(startRow + 2, 54, 26, 1, party.get(2).getSpecialName() + ": " + party.get(2).getSpecial() + "/" + party.get(2).getSpecialMax());
     }
 
 
