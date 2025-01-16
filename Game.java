@@ -51,35 +51,39 @@ public class Game{
   public static void TextBox(int row, int col, int width, int height, String text){
     //separates the text into individual words
     String[] words = text.split(" ");
-    for (int i = 0; i < words.length; i++) {
-      System.out.println(words[i]);
-    }
-    int nextRow = row;
-    String empty = "                                                                                        ".substring(0, width);
+    String empty = " --------------------------------------------------------".substring(0, width);
     // tested this for loop, it works properly
     for (int i = 0; i < height; i++) {
       drawText(empty, row + i, col);
     }
-    //int ogLength = text.length();
     String line = "";
     String testLine = "";
     for (int i = 0; i < words.length; i++) {
-      testLine = line + " " + words[i];
-      if (testLine.length() < width) {
-        line = line + " " + words[i];
+      if (testLine.equals("")) {
+        testLine = words[i];
+      }
+      else {
+        testLine = line + " " + words[i];
+      }
+      if (testLine.length() <= width) {
+        if (line.equals("")) {
+          line = words[i];
+        }
+        else {
+          line = line + " " + words[i];
+        }
+        if (i == words.length - 1) {
+          drawText(line, row, col);
+        }
       }
       else {
         drawText(line, row, col);
         row++;
         line = "";
+        testLine = "";
+        i--;
       }
     }
-    /*for (int i = 0; i < ogLength / width; i++) {
-      drawText(text.substring(0, width), row + i, col);
-      text = text.substring(width);
-      nextRow++;
-    }*/
-    //drawText(text, nextRow, col);
   }
 
 
