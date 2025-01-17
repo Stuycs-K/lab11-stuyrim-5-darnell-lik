@@ -137,6 +137,12 @@ public class Game{
     // under 25% : red
     // under 75% : yellow
     // otherwise : white
+    if (hp < maxHP / 4.0) {
+      output = "\u001b[" + Text.RED + "m"+ output +"\u001b[0m";
+    }
+    else if (hp < maxHP * 3 / 4.0) {
+      output = "\u001b[" + Text.YELLOW + "m"+ output +"\u001b[0m";
+    }
     return output;
   }
 
