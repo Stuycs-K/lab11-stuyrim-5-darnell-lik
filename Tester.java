@@ -18,6 +18,6 @@ public class Tester {
     //party.add(Game.createRandomAdventurer());
     //party.add(Game.createRandomAdventurer());
     //Game.drawParty(party, 2);
-    Text.go(30,1);
+    //Text.go(30,1);
   }
 }
