@@ -15,7 +15,7 @@ public class Game{
     //this needs to be 02500 but it doesnt work for some reason
     //String dash = "\u0250";
     Text.go(1, 1);
-    for (int i = 0; i < 80; i++) {
+    for (int i = 0; i < 79; i++) {
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
     }
     for (int i = 1; i < 30; i++) {
@@ -24,8 +24,26 @@ public class Game{
       Text.go(i, 81);
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
     }
-    Text.go(30, 1);
+    Text.go(29, 1);
     for (int i = 0; i < 80; i++) {
+      System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
+    }
+    Text.go(6, 1);
+    for (int i = 0; i < 80; i++) {
+      System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
+    }
+    Text.go(24, 1);
+    for (int i = 0; i < 80; i++) {
+      System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
+    }
+    for (int i = 2; i < 6; i++) {
+      Text.go(i, 27);
+      System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
+      Text.go(i, 53);
+      System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
+      Text.go(i + 23, 27);
+      System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
+      Text.go(i + 23, 53);
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
     }
   }
@@ -116,13 +134,13 @@ public class Game{
     * ***THIS ROW INTENTIONALLY LEFT BLANK***
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
-      TextBox(startRow, 2, 26, 1, party.get(0).getName());
-      TextBox(startRow + 1, 2, 26, 1, "HP: " + party.get(0).getHP());
-      TextBox(startRow + 2, 2, 26, 1, party.get(0).getSpecialName() + ": " + party.get(0).getSpecial() + "/" + party.get(0).getSpecialMax());
+      TextBox(startRow, 2, 25, 1, party.get(0).getName());
+      TextBox(startRow + 1, 2, 25, 1, "HP: " + party.get(0).getHP());
+      TextBox(startRow + 2, 2, 25, 1, party.get(0).getSpecialName() + ": " + party.get(0).getSpecial() + "/" + party.get(0).getSpecialMax());
 
-      TextBox(startRow, 28, 26, 1, party.get(1).getName());
-      TextBox(startRow + 1, 28, 26, 1, "HP: " + party.get(1).getHP());
-      TextBox(startRow + 2, 28, 26, 1, party.get(1).getSpecialName() + ": " + party.get(1).getSpecial() + "/" + party.get(1).getSpecialMax());
+      TextBox(startRow, 28, 25, 1, party.get(1).getName());
+      TextBox(startRow + 1, 28, 25, 1, "HP: " + party.get(1).getHP());
+      TextBox(startRow + 2, 28, 25, 1, party.get(1).getSpecialName() + ": " + party.get(1).getSpecial() + "/" + party.get(1).getSpecialMax());
 
       TextBox(startRow, 54, 26, 1, party.get(2).getName());
       TextBox(startRow + 1, 54, 26, 1, "HP: " + party.get(2).getHP());
@@ -155,7 +173,6 @@ public class Game{
   //Place the cursor at the place where the user will by typing their input at the end of this method.
   public static void drawScreen(ArrayList<Adventurer> party, ArrayList<Adventurer> enemies){
 
-    drawBackground();
     //draw player party
     drawParty(party, 2);
     //draw enemy party
@@ -192,16 +209,16 @@ public class Game{
     //If only 1 enemy is added it should be the boss class.
     //start with 1 boss and modify the code to allow 2-3 adventurers later.
     ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    enemies.add(createRandomAdventurer());
+    enemies.add(createRandomAdventurer());
+    enemies.add(createRandomAdventurer());
 
     //Adventurers you control:
     //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
-    /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-    //YOUR CODE HERE
-    /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+    party.add(createRandomAdventurer());
+    party.add(createRandomAdventurer());
+    party.add(createRandomAdventurer());
 
     boolean partyTurn = true;
     int whichPlayer = 0;
@@ -210,9 +227,11 @@ public class Game{
     String input = "";//blank to get into the main loop.
     Scanner in = new Scanner(System.in);
     //Draw the window border
+    drawBackground();
 
     //You can add parameters to draw screen!
-    drawScreen(party, enemies);//initial state.
+    drawScreen(party, enemies);
+    //initial state.
 
     //Main loop
 
