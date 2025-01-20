@@ -209,16 +209,22 @@ public class Game{
     //If only 1 enemy is added it should be the boss class.
     //start with 1 boss and modify the code to allow 2-3 adventurers later.
     ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
-    enemies.add(createRandomAdventurer());
-    enemies.add(createRandomAdventurer());
-    enemies.add(createRandomAdventurer());
-
+    int PartySize = Math.random() * 4;
+    if(PartySize == 1){
+      enemies.add(Death());
+    }
+    else{
+      while( PartySize > 0){
+        PartySize --;
+        enemies.add(createRandomAdventurer());
+      }
+    }
     //Adventurers you control:
     //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
-    party.add(createRandomAdventurer());
-    party.add(createRandomAdventurer());
-    party.add(createRandomAdventurer());
+    for(int i = 0; i < 3; i++){
+      party.add(createRandomAdventurer());
+    }
 
     boolean partyTurn = true;
     int whichPlayer = 0;
