@@ -209,7 +209,7 @@ public class Game{
     //If only 1 enemy is added it should be the boss class.
     //start with 1 boss and modify the code to allow 2-3 adventurers later.
     ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
-    int PartySize = Math.random() * 4;
+    int PartySize = (Math.random() * 3) + 1;
     if(PartySize == 1){
       enemies.add(Death());
     }
