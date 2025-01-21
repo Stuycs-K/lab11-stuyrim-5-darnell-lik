@@ -240,6 +240,7 @@ public class Game{
     int whichOpponent = 0;
     int turn = 0;
     boolean flag = false;
+    boolean allDead = false;
     String input = "";//blank to get into the main loop.
     Scanner in = new Scanner(System.in);
     //Draw the window border
@@ -255,7 +256,18 @@ public class Game{
     String preprompt = "Enter command for "+party.get(whichPlayer)+": (a)ttack/ (sp)ecial/ (su)pport (0/1)/ (q)uit:";
     TextBox(28, 1, 80, 1, preprompt);
 
-    while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
+    while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit")) || allDead){
+
+      allDead = (party.get(0).getHP() <= 0) && (party.get(1).getHP() <= 0) && (party.get(2).getHP() <= 0);
+      if (!allDead) {
+        allDead = true;
+        for (int i = 0; i < enemies.size(); i++) {
+          if (enemies.get(i).getHP() > 0) {
+            allDead = false;
+          }
+        }
+      }
+
 
       //Read user input
       input = userInput(in);
