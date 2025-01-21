@@ -151,19 +151,6 @@ public class Game{
         //TextBox(startRow + 3, 2 + (i * 26), 25 + q, 1, );
         //this last row will show status conditions
       }
-      /*
-      TextBox(startRow, 2, 25, 1, party.get(0).getName());
-      TextBox(startRow + 1, 2, 25, 1, "HP: " + party.get(0).getHP());
-      TextBox(startRow + 2, 2, 25, 1, party.get(0).getSpecialName() + ": " + party.get(0).getSpecial() + "/" + party.get(0).getSpecialMax());
-
-      TextBox(startRow, 28, 25, 1, party.get(1).getName());
-      TextBox(startRow + 1, 28, 25, 1, "HP: " + party.get(1).getHP());
-      TextBox(startRow + 2, 28, 25, 1, party.get(1).getSpecialName() + ": " + party.get(1).getSpecial() + "/" + party.get(1).getSpecialMax());
-
-      TextBox(startRow, 54, 25, 1, party.get(2).getName());
-      TextBox(startRow + 1, 54, 26, 1, "HP: " + party.get(2).getHP());
-      TextBox(startRow + 2, 54, 26, 1, party.get(2).getSpecialName() + ": " + party.get(2).getSpecial() + "/" + party.get(2).getSpecialMax());
-      */
     }
 
 
