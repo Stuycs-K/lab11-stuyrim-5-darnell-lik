@@ -289,19 +289,17 @@ public class Game{
         target = Integer.parseInt(inputs[1]);
 
         if(input.startsWith("attack ") || input.startsWith("a ")){
-          Text.go(30, 1);
-          System.out.print(whichPlayer);
           TextBox(7 + (whichPlayer * 3), 2, 39, 15 - (whichPlayer * 3), party.get(whichPlayer).attack(enemies.get(target)));
-        }
+      }
         else if(input.startsWith("special ") || input.startsWith("sp ")){
           TextBox(7 + (whichPlayer * 3), 2, 39, 15 - (whichPlayer * 3), party.get(whichPlayer).specialAttack(enemies.get(target)));
-        }
+      }
         else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
           if (target == whichPlayer) {
             TextBox(7 + (whichPlayer * 3), 2, 39, 15 - (whichPlayer * 3), party.get(whichPlayer).support());
-          }
+        }
           else {
             TextBox(7 + (whichPlayer * 3), 2, 39, 15 - (whichPlayer * 3), party.get(whichPlayer).support(party));
           }
@@ -309,6 +307,7 @@ public class Game{
         else {
           drawText("something went wrong", 29, 1);
         }
+        drawScreen(party, enemies);
 
         //You should decide when you want to re-ask for user input
         //If no errors:
@@ -338,26 +337,36 @@ public class Game{
         //Enemy action choices go here!
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
         //YOUR CODE HERE
-        if (enemies.size() == 1);
-        switch ((enemies.size() == 0) ? (int) ((Math.random()) * 3):(int) (Math.random() * 4)){
-          case 0:
-            TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).attack(party.get((int)(Math.random() * 3))));
-            drawScreen(party, enemies);
-            break;
-          case 1:
-            TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).specialAttack(party.get((int)(Math.random() * 3))));
-            drawScreen(party, enemies);
-            break;
-          case 2:
-            TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).support());
-            drawScreen(party, enemies);
-            break;
-          case 3:
-            TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).support(enemies));
-            drawScreen(party, enemies);
-            break;
+        if(enemies.get(whichOpponent).getSpecialName().equals("graveyard")){
+          switch ( (int) (Math.random() * 3)){
+            case 0:
+              TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).attack(party.get((int)(Math.random() * 3))));
+              break;
+            case 1:
+              TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).specialAttack(party.get((int)(Math.random() * 3))));
+              break;
+            case 2:
+              TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).support());
+              break;
+          }
         }
-
+        else{
+          switch ((int) (Math.random() * 4)){
+            case 0:
+              TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).attack(party.get((int)(Math.random() * 3))));
+              break;
+            case 1:
+              TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).specialAttack(party.get((int)(Math.random() * 3))));
+              break;
+            case 2:
+              TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).support());
+              break;
+            case 3:
+              TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).support(enemies));
+              break;
+          }
+        }
+        drawScreen(party, enemies);
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 

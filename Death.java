@@ -41,7 +41,7 @@ public class Death extends Adventurer{
   public String specialAttack(Adventurer other){
     if(getSpecial() >= 3)
     {
-      int souls = ((int) Math.random() + 1) * (((getSpecial() - getSpecial() % 3) / 3 )+ 1);
+      int souls = (int) ((Math.random() * (((getSpecial() - getSpecial() % 3) / 3 ))) + 1);
       restoreSpecial(-souls * 3);
       int damage = (int) (Math.random() * 5 )+ 6;
       attack(other, damage + souls);//other.applyDamage(damage);
@@ -59,14 +59,14 @@ public class Death extends Adventurer{
   public String support(){
     if(getSpecial() >= 5)
     {
-      int souls = ((int)Math.random() + 1) * (((getSpecial() - getSpecial() % 5) / 5 )+ 1);
+      int souls = (int) ((Math.random() * (((getSpecial() - getSpecial() % 5) / 5 ))) + 1);
       setHP(getHP()+ (10*souls));
       restoreSpecial(-souls * 5);
       return this+ " eats " + souls * 5 + " souls to heal" + 10 * souls +" HP";
     }
     else{
       setHP(getHP() + 5);
-      restoreSpecial(-graveyard);
+      restoreSpecial(-getSpecial());
       return "Not enough souls in graveyard, all are sacrificed and 5 HP is gained";
     }
   }
