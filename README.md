@@ -15,6 +15,18 @@ Make a clear list of features that work/dont work
 
 :beetle: This is a bug that affects the game.
 
+:white_check_mark: Grandma can attack, specialAttack, support self, and support allies
+:white_check_mark: MiddleAgedMan can attack, specialAttack, support self, and support allies
+:white_check_mark: Baby can attack, specialAttack, support self, and support allies
+:white_check_mark: Death boss class works
+:white_check_mark: All classes are unique and the theme is cohesive
+:white_check_mark: The game starts with a random number of enemies
+:white_check_mark: When an invalid input is entered, the user is properly reprompted
+:white_check_mark: Enemies make moves randomly
+:white_check_mark: Results are displayed within the border
+:ballot_box_with_check: Each subclass has a number of possible random names
+:beetle: No special output when an adventurer misses or is affected by other status conditions
+
 
 ## Adventurer Subclasses
 
