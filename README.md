@@ -24,8 +24,11 @@ Make a clear list of features that work/dont work
 :white_check_mark: When an invalid input is entered, the user is properly reprompted <br />
 :white_check_mark: Enemies make moves randomly <br />
 :white_check_mark: Results are displayed within the border <br />
+:white_check_mark: Game ends on quit <br />
+:white_check_mark: Game ends on either party death <br />
 :ballot_box_with_check: Each subclass has a number of possible random names <br />
 :beetle: No special output when an adventurer misses or is affected by other status conditions <br />
+:beetle: When adventurers die, their latest action remains on screen <br />
 
 
 ## Adventurer Subclasses
