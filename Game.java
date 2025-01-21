@@ -18,13 +18,13 @@ public class Game{
     for (int i = 0; i < 80; i++) {
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
     }
-    for (int i = 1; i < 30; i++) {
+    for (int i = 1; i < 29; i++) {
       Text.go(i, 1);
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
       Text.go(i, 81);
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
     }
-    Text.go(29, 1);
+    Text.go(28, 1);
     for (int i = 0; i < 80; i++) {
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
     }
@@ -32,7 +32,7 @@ public class Game{
     for (int i = 0; i < 80; i++) {
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
     }
-    Text.go(24, 1);
+    Text.go(23, 1);
     for (int i = 0; i < 80; i++) {
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
     }
@@ -41,9 +41,9 @@ public class Game{
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
       Text.go(i, 53);
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
-      Text.go(i + 23, 27);
+      Text.go(i + 22, 27);
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
-      Text.go(i + 23, 53);
+      Text.go(i + 22, 53);
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
     }
   }
@@ -143,6 +143,8 @@ public class Game{
         TextBox(startRow, 2 + (i * 26), 25 + q, 1, party.get(i).getName());
         TextBox(startRow + 1, 2 + (i * 26), 25 + q, 1, "HP: " + party.get(i).getHP());
         TextBox(startRow + 2, 2 + (i * 26), 25 + q, 1, party.get(i).getSpecialName() + ": " + party.get(i).getSpecial() + "/" + party.get(i).getSpecialMax());
+        //TextBox(startRow + 3, 2 + (i * 26), 25 + q, 1, );
+        //this last row will show status conditions
       }
       /*
       TextBox(startRow, 2, 25, 1, party.get(0).getName());
@@ -186,9 +188,9 @@ public class Game{
   public static void drawScreen(ArrayList<Adventurer> party, ArrayList<Adventurer> enemies){
 
     //draw player party
-    drawParty(party, 2);
+    drawParty(party, 24);
     //draw enemy party
-    drawParty(enemies, 25);
+    drawParty(enemies, 2);
     Text.go(30, 1);
   }
 
@@ -223,7 +225,7 @@ public class Game{
     ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
     int PartySize = (int)((Math.random() * 3) + 1);
     if(PartySize == 1){
-      enemies.add( new Death("death"));
+      enemies.add(new Death("death"));
     }
     else{
       while( PartySize > 0){
@@ -254,10 +256,12 @@ public class Game{
     //Main loop
 
     //display this prompt at the start of the game.
-    String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+    String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit:";
 
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
-      drawText(preprompt, 30, 1);
+      drawText(preprompt, 29, 1);
+      Text.go(30, 1);
+
       //Read user input
       input = userInput(in);
 
@@ -268,22 +272,24 @@ public class Game{
       if(partyTurn){
 
         //Process user input for the last Adventurer:
-        if(input.equals("attack") || input.equals("a")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        String[] inputs = input.split(" ");
+        int target = Integer.parseInt(inputs[1]);
+
+        if(input.startsWith("attack ") || input.startsWith("a ")){
+          party.get(whichPlayer).attack(enemies.get(target));
         }
-        else if(input.equals("special") || input.equals("sp")){
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+        else if(input.startsWith("special ") || input.startsWith("sp ")){
+          party.get(whichPlayer).specialAttack(enemies.get(target));
         }
         else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
-          /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
-          //YOUR CODE HERE
-          /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
+          if (target == 0) {
+            party.get(whichPlayer).support();
+          }
+          else {
+            party.get(whichPlayer).support(party);
+          }
         }
 
         //You should decide when you want to re-ask for user input
