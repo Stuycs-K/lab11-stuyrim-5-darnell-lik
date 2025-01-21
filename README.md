@@ -36,7 +36,7 @@ Make a clear list of features that work/dont work
 | Move Category | Move Description                                                                                                                                                     |
 | :------------ | :------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Attack        | - Punches opponent <br />- Does 4 damage                                                                                                                             |
-| Special       | - Spills hot coffee onto opponent <br />- Deals 4 damage <br />- The opponent's next turn is skipped <br />- Removes 1 SP                                            |
+| Special       | - Spills hot coffee onto opponent <br />- Deals 6 damage <br />- The opponent deals 50% less damage for 1 turn <br />- Removes 1 SP                                            |
 | Support(self) | - Drinks coffee <br />- Heal 8 hp <br />- Removes 1 SP                                                                                                               |
 | Support(ally) | - Works overtime <br />- Deals 6 damage to self <br />- Allies take 50% less damage for 1 turn                                                                       |
 
