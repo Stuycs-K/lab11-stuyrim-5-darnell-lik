@@ -58,15 +58,24 @@ public class Baby extends Adventurer{
   //heal or buff self
   public String support(){
     dodge(1, 0.80);
-    return "The baby crawls and has an 80% chance to dodge";
+    return this + " crawls and has an 80% chance to dodge";
   }
 
   public String specialAttack(Adventurer other){
-    saliva --;
-    int damage = 4;
-    attack(other, damage);
-    other.AttackMiss(2);
-    //Im not sure how to implement possible miss
-    return "";
+    if(getSpecial() != 0){
+      saliva--;
+      int damage = 4;
+      if (this.getdmgBoost() != 0) {
+        damage = attack(other, (int)(4 * 1.5));
+      }
+      else {
+        damage = attack(other, 4);
+      }
+      other.AttackMiss(2);
+      return this + " spat in " + other + "'s face! " + other + " can't see and takes " + damage + " damage too.";
+    }
+    else{
+      return "Not enough saliva. Instead " + attack(other);
+    }
   }
 }

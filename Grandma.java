@@ -60,7 +60,7 @@ public class Grandma extends Adventurer{
       }
     }
     else {
-      returnString += "miraculous got lived to fight more. She still enraged the party though for one turn!";
+      returnString += " miraculously lived to fight on. She still enraged the party for one turn!";
       for (int i = 0; i < allies.size(); i++) {
         allies.get(i).boostDamage(1);
       }
@@ -72,13 +72,18 @@ public class Grandma extends Adventurer{
   public String support() {
     int hp = 4;
     setHP(getHP()+hp);
-    return this + " baked cookies to restore " + hp + " hp and stored " + restoreSpecial(1) + "cookie(s) in reserve.";
+    return this + " baked cookies to restore " + hp + " hp and stored " + restoreSpecial(1) + " cookie(s) in reserve.";
   }
 
   //consume all cookies to deal sp * 4 damage
   public String specialAttack(Adventurer other) {
     int damage = getSpecial() * 4;
-    attack(other, damage);//other.applyDamage(damage);
+    if (this.getdmgBoost() != 0) {
+      damage = attack(other, (int)((getSpecial() * 4) * 1.5));
+    }
+    else {
+      damage = attack(other, getSpecial() * 4);
+    }
     setSpecial(0);
     return this + " went into a frenzy after consuming their cookies in reserve to deal " + damage + " damage!";
   }

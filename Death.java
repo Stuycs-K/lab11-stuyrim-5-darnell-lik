@@ -9,7 +9,7 @@ public class Death extends Adventurer{
   }
 
   public Death(String name){
-    this(name, 30);
+    this(name, 60);
   }
 
   public Death(){

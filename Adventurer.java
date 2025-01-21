@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public abstract class Adventurer{
   private String name;
   private int HP, maxHP, resistance, dodge, dmgBoost, AttackMiss;
-  private boolean miss;
   private double odds;
 
   //Abstract methods are meant to be implemented in child classes.
@@ -118,7 +117,6 @@ public abstract class Adventurer{
     this.dmgBoost = 0;
     this.dodge = 0;
     this.resistance = 0;
-    this.miss = false;
     this.odds = 0.0;
   }
 

@@ -121,14 +121,14 @@ public class Game{
       String[] manNames = new String[]{"Bob", "Daniel", "John", "Ludwig", "Jacob", "Travis"};
       int n = (int)(Math.random() * 3);
       if (n == 0) {
-        return new Grandma(grandmaNames[(int)(Math.random() * 7)]);
+        return new Grandma(grandmaNames[(int)(Math.random() * 6)]);
         //these return statements are placeholders until the other classes are made
       }
       else if (n == 1) {
-        return new MiddleAgedMan(manNames[(int)(Math.random() * 7)]);
+        return new MiddleAgedMan(manNames[(int)(Math.random() * 6)]);
       }
       else {
-        return new Baby(babyNames[(int)(Math.random() * 7)]);
+        return new Baby(babyNames[(int)(Math.random() * 6)]);
       }
     }
 
@@ -387,7 +387,7 @@ public class Game{
         turn++;
         partyTurn=true;
         //display this prompt before player's turn
-        String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+        String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit";
         TextBox(28, 1, 80, 1, prompt);
       }
 

@@ -11,7 +11,7 @@ public class MiddleAgedMan extends Adventurer{
   }
 
   public MiddleAgedMan(String name){
-    this(name, 30);
+    this(name, 25);
   }
 
   public MiddleAgedMan(){
@@ -49,9 +49,14 @@ public class MiddleAgedMan extends Adventurer{
   public String specialAttack(Adventurer other){
     if(getSpecial() != 0){
       restoreSpecial(-1);
-      int damage = 4;
-      attack(other, damage);//other.applyDamage(damage);
-      return this + " spilled coffee on "+other+ " dealing "+ damage +" points of damage and skipping their next turn!";
+      int damage = 8;
+      if (this.getdmgBoost() != 0) {
+        damage = attack(other, (int)(8 * 1.5));
+      }
+      else {
+        damage = attack(other, 8);
+      }
+      return this + " spilled coffee on " + other + ", dealing " + damage + " points of damage!";
     }else{
       return "Not enough coffee to spill. Instead " + attack(other);
     }
