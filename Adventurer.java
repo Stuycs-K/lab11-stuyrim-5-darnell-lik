@@ -86,8 +86,11 @@ public abstract class Adventurer{
     }
   }
   public void attack(Adventurer other, int amount){
-    if( (AttackMiss != 0) && (Math.random() < 0.75))
+    if( (AttackMiss != 0))
     {
+      other.applyDamage(amount);
+    }
+    else if (!(Math.random() < 0.75)){
       other.applyDamage(amount);
     }
   }
