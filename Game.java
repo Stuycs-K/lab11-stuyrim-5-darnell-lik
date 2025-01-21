@@ -276,7 +276,7 @@ public class Game{
         int target = Integer.parseInt(inputs[1]);
 
         if(input.startsWith("attack ") || input.startsWith("a ")){
-          party.get(whichPlayer).attack(enemies.get(target));
+          TextBox(2, 7, 40, 20, party.get(whichPlayer).attack(enemies.get(target)));
         }
         else if(input.startsWith("special ") || input.startsWith("sp ")){
           party.get(whichPlayer).specialAttack(enemies.get(target));
