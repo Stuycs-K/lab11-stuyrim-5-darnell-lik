@@ -82,10 +82,12 @@ public abstract class Adventurer{
     }
     if(resistance != 0) {
       this.HP -= (int)(amount * 0.5);
+      if(this.HP < 0){this.HP = 0;}
       resistance--;
       return (int)(amount * 0.5);
     }
     this.HP -= amount;
+    if(this.HP < 0){this.HP = 0;}
     return amount;
   }
 
