@@ -23,7 +23,9 @@ public class Text{
     System.out.print("\u001b[0m");
   }
 
-
+  public static void clearLine(){
+    System.out.print("\033[2K");
+  }
   public static void hideCursor(){
     System.out.print("\u001b[?25l");
   }
