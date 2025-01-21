@@ -16,40 +16,40 @@ public class Game{
     //String dash = "\u0250";
     Text.go(1, 1);
     for (int i = 0; i < 80; i++) {
-      System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
+      System.out.print(Text.colorize("+", BORDER_BACKGROUND));
     }
     for (int i = 1; i < 28; i++) {
       Text.go(i, 1);
-      System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
+      System.out.print(Text.colorize("+", BORDER_BACKGROUND));
       Text.go(i, 81);
-      System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
+      System.out.print(Text.colorize("+", BORDER_BACKGROUND));
     }
     Text.go(27, 1);
     for (int i = 0; i < 80; i++) {
-      System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
+      System.out.print(Text.colorize("+", BORDER_BACKGROUND));
     }
     Text.go(6, 1);
     for (int i = 0; i < 80; i++) {
-      System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
+      System.out.print(Text.colorize("+", BORDER_BACKGROUND));
     }
     Text.go(22, 1);
     for (int i = 0; i < 80; i++) {
-      System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
+      System.out.print(Text.colorize("+", BORDER_BACKGROUND));
     }
     for (int i = 2; i < 6; i++) {
       Text.go(i, 27);
-      System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
+      System.out.print(Text.colorize("+", BORDER_BACKGROUND));
       Text.go(i, 53);
-      System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
+      System.out.print(Text.colorize("+", BORDER_BACKGROUND));
       Text.go(i + 21, 27);
-      System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
+      System.out.print(Text.colorize("+", BORDER_BACKGROUND));
       Text.go(i + 21, 53);
-      System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
+      System.out.print(Text.colorize("+", BORDER_BACKGROUND));
     }
     //DRAW MIDLINE
     for(int i =0; i < 15; i ++){
       Text.go(7 + i,41);
-      System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
+      System.out.print(Text.colorize("+", BORDER_BACKGROUND));
     }
   }
 
@@ -116,16 +116,19 @@ public class Game{
     //return a random adventurer (choose between all available subclasses)
     //feel free to overload this method to allow specific names/stats.
     public static Adventurer createRandomAdventurer(){
+      String[] grandmaNames = new String[]{"Heather", "Beth", "Cheyenne", "Sophia", "Lola", "Hana"};
+      String[] babyNames = new String[]{"Dylan", "Kai", "Simone", "Skylar", "Aiden", "Tristan"};
+      String[] manNames = new String[]{"Bob", "Daniel", "John", "Ludwig", "Jacob", "Travis"};
       int n = (int)(Math.random() * 3);
       if (n == 0) {
-        return new Grandma("grandma");
+        return new Grandma(grandmaNames[(int)(Math.random() * 7)]);
         //these return statements are placeholders until the other classes are made
       }
       else if (n == 1) {
-        return new MiddleAgedMan("middle aged man");
+        return new MiddleAgedMan(manNames[(int)(Math.random() * 7)]);
       }
       else {
-        return new Baby("baby");
+        return new Baby(babyNames[(int)(Math.random() * 7)]);
       }
     }
 
@@ -145,9 +148,9 @@ public class Game{
         if(i == 2){
           q = 2;
         }
-        TextBox(startRow, 2 + (i * 26), 25 + q, 1, party.get(i).getName());
-        TextBox(startRow + 1, 2 + (i * 26), 25 + q, 1, "HP: " + party.get(i).getHP());
-        TextBox(startRow + 2, 2 + (i * 26), 25 + q, 1, party.get(i).getSpecialName() + ": " + party.get(i).getSpecial() + "/" + party.get(i).getSpecialMax());
+        TextBox(startRow, 2 + (i * 26), 24 + q, 1, party.get(i).getName());
+        TextBox(startRow + 1, 2 + (i * 26), 24 + q, 1, "HP: " + party.get(i).getHP());
+        TextBox(startRow + 2, 2 + (i * 26), 24 + q, 1, party.get(i).getSpecialName() + ": " + party.get(i).getSpecial() + "/" + party.get(i).getSpecialMax());
         //TextBox(startRow + 3, 2 + (i * 26), 25 + q, 1, );
         //this last row will show status conditions
       }
