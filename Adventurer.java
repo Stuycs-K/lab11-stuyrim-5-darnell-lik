@@ -2,7 +2,7 @@ import java.util.Random;
 import java.util.ArrayList;
 public abstract class Adventurer{
   private String name;
-  private int HP, maxHP, resistance, chanceToMiss, dmgBoost, AttackMiss;
+  private int HP, maxHP, resistance, dodge, dmgBoost, AttackMiss;
   private boolean miss;
   private double odds;
 
@@ -58,7 +58,7 @@ public abstract class Adventurer{
     this.resistance = rounds;
   }
   public void dodge(int rounds, double chance){
-    chanceToMiss = rounds;
+    dodge = rounds;
     odds = chance;
   }
   public void applyDodge(Adventurer other, int rounds, double chance){
@@ -67,33 +67,39 @@ public abstract class Adventurer{
   public void boostDamage(int rounds){
     dmgBoost = rounds;
   }
+  public int getdmgBoost() {
+    return dmgBoost;
+  }
   public void AttackMiss(int rounds){
     AttackMiss = rounds;
   }
-  public void applyDamage(int amount){
-    if( (chanceToMiss != 0) && !(Math.random() < odds) )
-    {
-      if(resistance != 0)
-      {
-        this.HP -= (int)(amount * 0.5);
-        resistance--;
-      }
-      if(dmgBoost != 0)
-      {
-        this.HP -= (int)(amount * 1.5);
-        dmgBoost--;
+  public int applyDamage(int amount){
+    if(dodge != 0) {
+      dodge--;
+      if (!(Math.random() < odds)) {
+        return 0;
       }
     }
+    if(resistance != 0) {
+      this.HP -= (int)(amount * 0.5);
+      resistance--;
+      return (int)(amount * 0.5);
+    }
+    return amount;
   }
-  public void attack(Adventurer other, int amount){
-    if( (AttackMiss != 0))
+
+  public int attack(Adventurer other, int amount){
+    int damage = 0;
+    if( (AttackMiss == 0))
     {
-      other.applyDamage(amount);
+      damage = other.applyDamage(amount);
     }
     else if (!(Math.random() < 0.75)){
-      other.applyDamage(amount);
+      damage = other.applyDamage(amount);
     }
+    return damage;
   }
+
   //You did it wrong if this happens.
   public Adventurer(){
     this("Lester-the-noArg-constructor-string");
@@ -108,7 +114,7 @@ public abstract class Adventurer{
     this.HP = hp;
     this.maxHP = hp;
     this.dmgBoost = 0;
-    this.chanceToMiss = 0;
+    this.dodge = 0;
     this.resistance = 0;
     this.miss = false;
     this.odds = 0.0;

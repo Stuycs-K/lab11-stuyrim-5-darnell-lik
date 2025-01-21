@@ -34,8 +34,14 @@ public class Death extends Adventurer{
 
   public String attack(Adventurer other){
     int damage = (int) (Math.random() * 5 )+ 6;
-    attack(other, damage);//other.applyDamage(damage);
-    return this + " attacked "+ other + " and dealt "+ damage + " points of damage";
+    int result = damage;
+    if (this.getdmgBoost() != 0) {
+      damage = attack(other, (int)(damage * 1.5));
+    }
+    else {
+      damage = attack(other, damage);
+    }
+    return this + " attacked "+ other + " and dealt "+ result + " points of damage";
   }
 
   public String specialAttack(Adventurer other){

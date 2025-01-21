@@ -19,11 +19,11 @@ public class Tester {
     //party.add(Game.createRandomAdventurer());
     //Game.drawParty(party, 2);
     //Text.go(30,1);
-    Adventurer p1 = new Grandma("beth");
-    Adventurer p2 = new Baby("steve");
-    System.out.println(p2.getHP());
-    p1.attack(p2);
-    System.out.println(p2.getHP());
-    //Game.run();
+    //Adventurer p1 = new Grandma("beth");
+    //Adventurer p2 = new Baby("steve");
+    //System.out.println(p2.getHP());
+    //p1.attack(p2);
+    //System.out.println(p2.getHP());
+    Game.run();
   }
 }

@@ -37,8 +37,13 @@ public class Grandma extends Adventurer{
 
   //Deals 8 damage
   public String attack(Adventurer other) {
-    int damage = 8;
-    attack(other, damage);//other.applyDamage(damage);
+    int damage;
+    if (this.getdmgBoost() != 0) {
+      damage = attack(other, (int)(8 * 1.5));
+    }
+    else {
+      damage = attack(other, 8);
+    }
     return this + " hit " + other + " with their rolling pin and dealt " + damage + " damage.";
   }
 
