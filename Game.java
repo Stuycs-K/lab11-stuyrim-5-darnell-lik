@@ -111,7 +111,7 @@ public class Game{
     //return a random adventurer (choose between all available subclasses)
     //feel free to overload this method to allow specific names/stats.
     public static Adventurer createRandomAdventurer(){
-      int n = (int)(Math.random() * 4);
+      int n = (int)(Math.random() * 3);
       if (n == 0) {
         return new Grandma("grandma");
         //these return statements are placeholders until the other classes are made
@@ -134,6 +134,13 @@ public class Game{
     * ***THIS ROW INTENTIONALLY LEFT BLANK***
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
+      for(int i = 0; i < party.size(); i ++)
+      {
+        TextBox(startRow, 2 + (i * 26), 25, 1, party.get(i).getName());
+        TextBox(startRow + 1, 2 + (i * 26), 25, 1, "HP: " + party.get(i).getHP());
+        TextBox(startRow + 2, 2 + (i * 26), 25, 1, party.get(i).getSpecialName() + ": " + party.get(i).getSpecial() + "/" + party.get(i).getSpecialMax());
+      }
+      /*
       TextBox(startRow, 2, 25, 1, party.get(0).getName());
       TextBox(startRow + 1, 2, 25, 1, "HP: " + party.get(0).getHP());
       TextBox(startRow + 2, 2, 25, 1, party.get(0).getSpecialName() + ": " + party.get(0).getSpecial() + "/" + party.get(0).getSpecialMax());
@@ -142,9 +149,10 @@ public class Game{
       TextBox(startRow + 1, 28, 25, 1, "HP: " + party.get(1).getHP());
       TextBox(startRow + 2, 28, 25, 1, party.get(1).getSpecialName() + ": " + party.get(1).getSpecial() + "/" + party.get(1).getSpecialMax());
 
-      TextBox(startRow, 54, 26, 1, party.get(2).getName());
+      TextBox(startRow, 54, 25, 1, party.get(2).getName());
       TextBox(startRow + 1, 54, 26, 1, "HP: " + party.get(2).getHP());
       TextBox(startRow + 2, 54, 26, 1, party.get(2).getSpecialName() + ": " + party.get(2).getSpecial() + "/" + party.get(2).getSpecialMax());
+      */
     }
 
 
