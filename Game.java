@@ -248,7 +248,7 @@ public class Game{
     //Main loop
 
     //display this prompt at the start of the game.
-    String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit:";
+    String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit:";
 
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
       drawText(preprompt, 28, 1);
@@ -299,7 +299,7 @@ public class Game{
         else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
-          if (target == 0) {
+          if (target == whichPlayer) {
             TextBox(7 + (whichPlayer * 3), 2, 39, 15- (whichPlayer * 3), party.get(whichPlayer).support());
           }
           else {
@@ -318,7 +318,7 @@ public class Game{
         if(whichPlayer < party.size()){
           //This is a player turn.
           //Decide where to draw the following prompt:
-          String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+          preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit:";
 
 
         }else{
