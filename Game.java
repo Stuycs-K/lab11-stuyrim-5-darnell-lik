@@ -239,6 +239,7 @@ public class Game{
     String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
 
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
+      drawText(preprompt, 30, 1);
       //Read user input
       input = userInput(in);
 
