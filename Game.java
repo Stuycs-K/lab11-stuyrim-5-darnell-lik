@@ -264,7 +264,11 @@ public class Game{
       if(partyTurn){
 
         //Process user input for the last Adventurer:
+        String reprompt = "Re-enter your action for " + party.get(whichPlayer).toString();
         String[] inputs = input.split(" ");
+        if (inputs.length < 2) {
+          drawText(reprompt, 29, 1);
+        }
         int target = Integer.parseInt(inputs[1]);
 
         if(input.startsWith("attack ") || input.startsWith("a ")){
@@ -282,6 +286,9 @@ public class Game{
           else {
             party.get(whichPlayer).support(party);
           }
+        }
+        else {
+          drawText(reprompt, 29, 1);
         }
 
         //You should decide when you want to re-ask for user input
