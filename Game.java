@@ -239,6 +239,7 @@ public class Game{
     int whichPlayer = 0;
     int whichOpponent = 0;
     int turn = 0;
+    boolean flag = false;
     String input = "";//blank to get into the main loop.
     Scanner in = new Scanner(System.in);
     //Draw the window border
@@ -270,6 +271,11 @@ public class Game{
         String[] inputs = input.split(" ");
         try {
           while (true) {
+            if(input.equals("q") || input.equals("quit"))
+            {
+              flag = true;
+              break;
+            }
             if (inputs.length == 2 && (input.startsWith("attack ") || input.startsWith("a ") || input.startsWith("special ") || input.startsWith("sp ") || input.startsWith("su ") || input.startsWith("support ")))
             {
               try {
@@ -286,9 +292,8 @@ public class Game{
             inputs = input.split(" ");
           }
         }catch (Exception e) {}
+        if(flag){break;}
         int target = Integer.parseInt(inputs[1]);
-
-        target = Integer.parseInt(inputs[1]);
 
         if(input.startsWith("attack ") || input.startsWith("a ")){
           TextBox(7 + (whichPlayer * 3), 2, 39, 15 - (whichPlayer * 3), party.get(whichPlayer).attack(enemies.get(target)));
