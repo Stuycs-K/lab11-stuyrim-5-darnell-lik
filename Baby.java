@@ -38,11 +38,11 @@ public class Baby extends Adventurer{
   }
 
   public String support(ArrayList<Adventurer> team){
-    String returnString = this + "cries loudly and";
+    String returnString = this + " cries loudly and";
     for(Adventurer teammate : team)
     {
       teammate.boostDamage(1);
-      returnString += "boosts " + teammate +"'s damage by 1.5x";
+      returnString += " boosts " + teammate +"'s damage by 1.5x";
     }
     return returnString;
   }

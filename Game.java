@@ -338,18 +338,23 @@ public class Game{
         //Enemy action choices go here!
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
         //YOUR CODE HERE
-        switch ((int) (Math.random() * 4)){
+        if (enemies.size() == 1);
+        switch ((enemies.size() == 0) ? (int) (Math.random() * 3):(int) (Math.random() * 4)){
           case 0:
             TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).attack(party.get((int)(Math.random() * 3))));
+            drawScreen(party, enemies);
             break;
           case 1:
             TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).specialAttack(party.get((int)(Math.random() * 3))));
+            drawScreen(party, enemies);
             break;
           case 2:
-            TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).support(enemies));
+            TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).support());
+            drawScreen(party, enemies);
             break;
           case 3:
-            TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).support());
+            TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).support(enemies));
+            drawScreen(party, enemies);
             break;
         }
 
