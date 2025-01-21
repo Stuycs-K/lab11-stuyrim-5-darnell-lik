@@ -46,6 +46,11 @@ public class Game{
       Text.go(i + 22, 53);
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
     }
+    //DRAW MIDLINE
+    for(int i =0; i < 16; i ++){
+      Text.go(7 + i,41);
+      System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
+    }
   }
 
   //Display a line of text starting at
