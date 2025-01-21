@@ -301,6 +301,21 @@ public class Game{
         //Enemy action choices go here!
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
         //YOUR CODE HERE
+        switch ((int) Math.random() * 4){
+          case 0:
+            enemies.get(whichOpponent).attack(party.get((int)(Math.random() * 3)));
+            break;
+          case 1:
+            enemies.get(whichOpponent).specialAttack(party.get((int)(Math.random() * 3));
+            break;
+          case 2:
+            enemies.get(whichOpponent).support(enemies);
+            break;
+          case 3:
+            enemies.get(whichOpponent).support();
+            break;
+        }
+
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
