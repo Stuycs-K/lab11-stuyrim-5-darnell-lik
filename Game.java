@@ -75,7 +75,7 @@ public class Game{
     //separates the text into individual words
     String[] words = text.split(" ");
     //dashes are here for testing, replace with spaces for final
-    String empty = " --------------------------------------------------------".substring(0, width);
+    String empty = "---------------------------------------------------------------------------------".substring(0, width);
     // tested this for loop, it works properly
     for (int i = 0; i < height; i++) {
       drawText(empty, row + i, col);
@@ -251,7 +251,7 @@ public class Game{
     String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit:";
 
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
-      drawText(preprompt, 28, 1);
+      TextBox(28, 1, 80, 1, preprompt);
       Text.go(29, 1);
 
       //Read user input
@@ -277,7 +277,7 @@ public class Game{
                   }
               } catch (NumberFormatException ex) {}
             }
-            drawText(reprompt, 29, 1);
+            TextBox(28, 1, 80, 1, reprompt);
             Text.go(30, 1);
             Text.clearLine();
             input = userInput(in);
@@ -327,6 +327,7 @@ public class Game{
           String prompt = "press enter to see monster's turn";
           Text.go(28, 1);
           Text.clearLine();
+          TextBox(28, 1, 80, 1, prompt);
 
           partyTurn = false;
           whichOpponent = 0;
@@ -336,7 +337,7 @@ public class Game{
         //not the party turn!
 
         String prompt = "press enter to see next turn";
-        drawText(prompt, 28, 1);
+        TextBox(28, 1, 80, 1, prompt);
 
         //enemy attacks a randomly chosen person with a randomly chosen attack.z`
         //Enemy action choices go here!
@@ -346,19 +347,15 @@ public class Game{
         switch ((enemies.size() == 0) ? (int) ((Math.random()) * 3):(int) (Math.random() * 4)){
           case 0:
             TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).attack(party.get((int)(Math.random() * 3))));
-            drawScreen(party, enemies);
             break;
           case 1:
             TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).specialAttack(party.get((int)(Math.random() * 3))));
-            drawScreen(party, enemies);
             break;
           case 2:
             TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).support());
-            drawScreen(party, enemies);
             break;
           case 3:
             TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).support(enemies));
-            drawScreen(party, enemies);
             break;
         }
 
@@ -378,6 +375,7 @@ public class Game{
         partyTurn=true;
         //display this prompt before player's turn
         String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit";
+        TextBox(28, 1, 80, 1, prompt);
       }
 
       //display the updated screen after input has been processed.
