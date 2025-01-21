@@ -361,7 +361,7 @@ public class Game{
         //Enemy action choices go here!
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
         //YOUR CODE HERE
-        if (enemies.get(whichPlayer).getHP() > 0) {
+        if (enemies.get(whichOpponent).getHP() > 0) {
           if(enemies.get(whichOpponent).getSpecialName().equals("graveyard")){
             switch ( (int) (Math.random() * 3)){
               case 0:
