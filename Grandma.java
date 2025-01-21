@@ -49,10 +49,10 @@ public class Grandma extends Adventurer{
 
   //tells last words
   public String support(ArrayList<Adventurer> allies) {
-    String returnString = this + "told her last words and "
+    String returnString = this + "told her last words and ";
     if (Math.random() < 0.) {
       setHP(0);
-      returnString += "died. But in doing so enraged the party boosting damage for 1 turn and applying reduced damage!"
+      returnString += "died. But in doing so enraged the party boosting damage for 1 turn and applying reduced damage!";
       for (int i = 0; i < allies.size(); i++) {
         //give allies resistance and dmgBoost
         allies.get(i).boostDamage(1);
@@ -60,8 +60,10 @@ public class Grandma extends Adventurer{
       }
     }
     else {
-      returnString += "miraculous got lived to fight more. She still enraged the party though for one turn!"
-      allies.get(i).boostDamage(1);
+      returnString += "miraculous got lived to fight more. She still enraged the party though for one turn!";
+      for (int i = 0; i < allies.size(); i++) {
+        allies.get(i).boostDamage(1);
+      }
     }
     return returnString;
   }
