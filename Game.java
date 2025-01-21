@@ -324,6 +324,8 @@ public class Game{
           //This is after the player's turn, and allows the user to see the enemy turn
           //Decide where to draw the following prompt:
           String prompt = "press enter to see monster's turn";
+          Text.go(28, 1);
+          Text.clearLine();
 
           partyTurn = false;
           whichOpponent = 0;
@@ -332,6 +334,8 @@ public class Game{
       }else{
         //not the party turn!
 
+        String prompt = "press enter to see next turn";
+        drawText(prompt, 28, 1);
 
         //enemy attacks a randomly chosen person with a randomly chosen attack.z`
         //Enemy action choices go here!
@@ -369,9 +373,6 @@ public class Game{
         drawScreen(party, enemies);
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
-
-        //Decide where to draw the following prompt:
-        String prompt = "press enter to see next turn";
 
         whichOpponent++;
 
