@@ -339,7 +339,7 @@ public class Game{
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
         //YOUR CODE HERE
         if (enemies.size() == 1);
-        switch ((enemies.size() == 0) ? (int) (Math.random() * 3):(int) (Math.random() * 4)){
+        switch ((enemies.size() == 0) ? (int) ((Math.random()) * 3):(int) (Math.random() * 4)){
           case 0:
             TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).attack(party.get((int)(Math.random() * 3))));
             drawScreen(party, enemies);
