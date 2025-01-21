@@ -193,7 +193,7 @@ public class Game{
       Text.showCursor();
       String input = in.nextLine();
       //clear the text that was written
-      Text.go(29,1);
+      Text.go(29, 1);
       Text.clearLine();
       return input;
   }
@@ -201,7 +201,7 @@ public class Game{
   public static void quit(){
     Text.reset();
     Text.showCursor();
-    Text.go(32,1);
+    Text.go(30,1);
   }
 
   public static void run(){
@@ -248,7 +248,7 @@ public class Game{
     //Main loop
 
     //display this prompt at the start of the game.
-    String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit:";
+    String preprompt = "Enter command for "+party.get(whichPlayer)+": (a)ttack/ (sp)ecial/ (su)pport (0/1)/ (q)uit:";
     TextBox(28, 1, 80, 1, preprompt);
 
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
@@ -296,7 +296,7 @@ public class Game{
         else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
-          if (target == whichPlayer) {
+          if (target == 0) {
             TextBox(7 + (whichPlayer * 3), 2, 39, 15 - (whichPlayer * 3), party.get(whichPlayer).support());
         }
           else {
@@ -332,9 +332,6 @@ public class Game{
       }else{
         //not the party turn!
 
-        String prompt = "press enter to see next turn";
-        TextBox(28, 1, 80, 1, prompt);
-
         //enemy attacks a randomly chosen person with a randomly chosen attack.z`
         //Enemy action choices go here!
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
@@ -368,7 +365,10 @@ public class Game{
               break;
           }
         }
-        drawScreen(party, enemies);
+
+        String prompt = "press enter to see next turn";
+        TextBox(28, 1, 80, 1, prompt);
+
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
@@ -390,6 +390,8 @@ public class Game{
 
       //display the updated screen after input has been processed.
       drawScreen(party, enemies);
+      //enemies.get(0).applyDamage(12);
+      //System.out.println(enemies.get(0).getHP());
 
 
     }//end of main game loop
