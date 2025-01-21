@@ -340,16 +340,16 @@ public class Game{
         //YOUR CODE HERE
         switch ((int) Math.random() * 4){
           case 0:
-            enemies.get(whichOpponent).attack(party.get((int)(Math.random() * 3)));
+            TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).attack(party.get((int)(Math.random() * 3))));
             break;
           case 1:
-            enemies.get(whichOpponent).specialAttack(party.get((int)(Math.random() * 3)));
+            TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).specialAttack(party.get((int)(Math.random() * 3))));
             break;
           case 2:
-            enemies.get(whichOpponent).support(enemies);
+            TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).support(enemies));
             break;
           case 3:
-            enemies.get(whichOpponent).support();
+            TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).support());
             break;
         }
 
