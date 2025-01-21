@@ -193,6 +193,7 @@ public class Game{
       Text.showCursor();
       String input = in.nextLine();
       //clear the text that was written
+      Text.go(29, 1);
       Text.clearLine();
       return input;
   }
@@ -247,7 +248,7 @@ public class Game{
     //Main loop
 
     //display this prompt at the start of the game.
-    String preprompt = "Enter command for "+party.get(whichPlayer)+": (a)ttack # / (sp)ecial # / (su)pport 0/1 / (q)uit:";
+    String preprompt = "Enter command for "+party.get(whichPlayer)+": (a)ttack/ (sp)ecial/ (su)pport (0/1)/ (q)uit:";
     TextBox(28, 1, 80, 1, preprompt);
 
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
