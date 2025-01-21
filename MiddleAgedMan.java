@@ -36,7 +36,7 @@ public class MiddleAgedMan extends Adventurer{
   }
 
   public String attack(Adventurer other){
-    int damage;
+    int damage = 4;
     if (this.getdmgBoost() != 0) {
       damage = attack(other, (int)(4 * 1.5));
     }

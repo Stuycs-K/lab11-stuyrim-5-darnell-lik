@@ -85,13 +85,13 @@ public abstract class Adventurer{
       resistance--;
       return (int)(amount * 0.5);
     }
+    this.HP -= amount;
     return amount;
   }
 
   public int attack(Adventurer other, int amount){
     int damage = 0;
-    if( (AttackMiss == 0))
-    {
+    if( (AttackMiss == 0)){
       damage = other.applyDamage(amount);
     }
     else if (!(Math.random() < 0.75)){

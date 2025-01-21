@@ -32,7 +32,7 @@ public class Baby extends Adventurer{
   }
 
   public String attack(Adventurer other){
-    int damage;
+    int damage = 6;
     if (this.getdmgBoost() != 0) {
       damage = attack(other, (int)(6 * 1.5));
     }
