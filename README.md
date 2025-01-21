@@ -52,7 +52,7 @@ Make a clear list of features that work/dont work
 | Support(ally) | - Cries <br />- Allies do 50% more damage for 1 turn                                                                                                                 |
 
 ### Death subclass
-- Initial HP: 40/40
+- Initial HP: 60/60
 - Initial SP = 3/15
 
 | Move Category | Move Description                                                                                                                                                     |
