@@ -294,16 +294,16 @@ public class Game{
           TextBox(7 + (whichPlayer * 3), 2, 39, 15 - (whichPlayer * 3), party.get(whichPlayer).attack(enemies.get(target)));
         }
         else if(input.startsWith("special ") || input.startsWith("sp ")){
-          TextBox(7 + (whichPlayer * 3), 2, 39, 15- (whichPlayer * 3), party.get(whichPlayer).specialAttack(enemies.get(target)));
+          TextBox(7 + (whichPlayer * 3), 2, 39, 15 - (whichPlayer * 3), party.get(whichPlayer).specialAttack(enemies.get(target)));
         }
         else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
           if (target == whichPlayer) {
-            TextBox(7 + (whichPlayer * 3), 2, 39, 15- (whichPlayer * 3), party.get(whichPlayer).support());
+            TextBox(7 + (whichPlayer * 3), 2, 39, 15 - (whichPlayer * 3), party.get(whichPlayer).support());
           }
           else {
-            TextBox(7 + (whichPlayer * 3), 2, 39, 15- (whichPlayer * 3), party.get(whichPlayer).support(party));
+            TextBox(7 + (whichPlayer * 3), 2, 39, 15 - (whichPlayer * 3), party.get(whichPlayer).support(party));
           }
         }
         else {
