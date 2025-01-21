@@ -264,10 +264,14 @@ public class Game{
       if(partyTurn){
 
         //Process user input for the last Adventurer:
-        String reprompt = "Re-enter your action for " + party.get(whichPlayer).toString();
+        String reprompt = "Invalid input, re-enter your action for " + party.get(whichPlayer).toString();
         String[] inputs = input.split(" ");
-        if (inputs.length < 2) {
+        while (inputs.length < 2 || !(input.startsWith("attack ") || input.startsWith("a ") || input.startsWith("special ") || input.startsWith("sp ") || input.startsWith("su ") || input.startsWith("support "))) {
           drawText(reprompt, 29, 1);
+          Text.go(30, 1);
+          Text.clearLine();
+          input = userInput(in);
+          inputs = input.split(" ");
         }
         int target = Integer.parseInt(inputs[1]);
 
@@ -288,7 +292,7 @@ public class Game{
           }
         }
         else {
-          drawText(reprompt, 29, 1);
+          drawText("something went wrong", 29, 1);
         }
 
         //You should decide when you want to re-ask for user input
