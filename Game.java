@@ -266,7 +266,7 @@ public class Game{
         //Process user input for the last Adventurer:
         String reprompt = "Invalid input, re-enter your action for " + party.get(whichPlayer).toString();
         String[] inputs = input.split(" ");
-        while (inputs.length < 2 || !(input.startsWith("attack ") || input.startsWith("a ") || input.startsWith("special ") || input.startsWith("sp ") || input.startsWith("su ") || input.startsWith("support "))) {
+        while (inputs.length < 2 || Integer.parseInt(inputs[1]) < enemies.size() || !(input.startsWith("attack ") || input.startsWith("a ") || input.startsWith("special ") || input.startsWith("sp ") || input.startsWith("su ") || input.startsWith("support "))) {
           drawText(reprompt, 29, 1);
           Text.go(30, 1);
           Text.clearLine();
