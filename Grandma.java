@@ -49,18 +49,21 @@ public class Grandma extends Adventurer{
 
   //tells last words
   public String support(ArrayList<Adventurer> allies) {
-    int chance = (int)(Math.random() * 4);
-    if (chance == 0) {
+    String returnString = this + "told her last words and "
+    if (Math.random() < 0.) {
       setHP(0);
+      returnString += "died. But in doing so enraged the party boosting damage for 1 turn and applying reduced damage!"
       for (int i = 0; i < allies.size(); i++) {
         //give allies resistance and dmgBoost
+        allies.get(i).boostDamage(1);
+        allies.get(i).applyReducedDamage(1);
       }
     }
     else {
-      //give allies dmgBoost
+      returnString += "miraculous got lived to fight more. She still enraged the party though for one turn!"
+      allies.get(i).boostDamage(1);
     }
-    //placeholder
-    return "";
+    return returnString;
   }
 
   //bake cookies to heal 4 and gain 1 sp
