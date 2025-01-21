@@ -292,7 +292,7 @@ public class Game{
             {
               try {
                   int index = Integer.parseInt(inputs[1]);
-                  if (index < enemies.size()) {
+                  if (index < enemies.size() || (index < party.size() && (input.startsWith("su ") || input.startsWith("support ")))) {
                       break;
                   }
               } catch (NumberFormatException ex) {}
@@ -307,24 +307,29 @@ public class Game{
         if(flag){break;}
         int target = Integer.parseInt(inputs[1]);
 
-        if(input.startsWith("attack ") || input.startsWith("a ")){
-          TextBox(7 + (whichPlayer * 3), 2, 39, 15 - (whichPlayer * 3), party.get(whichPlayer).attack(enemies.get(target)));
-      }
-        else if(input.startsWith("special ") || input.startsWith("sp ")){
-          TextBox(7 + (whichPlayer * 3), 2, 39, 15 - (whichPlayer * 3), party.get(whichPlayer).specialAttack(enemies.get(target)));
-      }
-        else if(input.startsWith("su ") || input.startsWith("support ")){
-          //"support 0" or "su 0" or "su 2" etc.
-          //assume the value that follows su  is an integer.
-          if (target == 0) {
-            TextBox(7 + (whichPlayer * 3), 2, 39, 15 - (whichPlayer * 3), party.get(whichPlayer).support());
+        if (party.get(whichPlayer).getHP() > 0) {
+          if(input.startsWith("attack ") || input.startsWith("a ")){
+            TextBox(7 + (whichPlayer * 3), 2, 39, 15 - (whichPlayer * 3), party.get(whichPlayer).attack(enemies.get(target)));
         }
+          else if(input.startsWith("special ") || input.startsWith("sp ")){
+            TextBox(7 + (whichPlayer * 3), 2, 39, 15 - (whichPlayer * 3), party.get(whichPlayer).specialAttack(enemies.get(target)));
+        }
+          else if(input.startsWith("su ") || input.startsWith("support ")){
+            //"support 0" or "su 0" or "su 2" etc.
+            //assume the value that follows su  is an integer.
+            if (target == 0) {
+              TextBox(7 + (whichPlayer * 3), 2, 39, 15 - (whichPlayer * 3), party.get(whichPlayer).support());
+          }
+            else {
+              TextBox(7 + (whichPlayer * 3), 2, 39, 15 - (whichPlayer * 3), party.get(whichPlayer).support(party));
+            }
+          }
           else {
-            TextBox(7 + (whichPlayer * 3), 2, 39, 15 - (whichPlayer * 3), party.get(whichPlayer).support(party));
+            drawText("something went wrong", 29, 1);
           }
         }
         else {
-          drawText("something went wrong", 29, 1);
+          TextBox(7 + (whichPlayer * 3), 2, 39, 15 - (whichPlayer * 3), party.get(whichPlayer).toString() + " is dead and cannot move.");
         }
         drawScreen(party, enemies);
 
@@ -356,34 +361,39 @@ public class Game{
         //Enemy action choices go here!
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
         //YOUR CODE HERE
-        if(enemies.get(whichOpponent).getSpecialName().equals("graveyard")){
-          switch ( (int) (Math.random() * 3)){
-            case 0:
-              TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).attack(party.get((int)(Math.random() * 3))));
-              break;
-            case 1:
-              TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).specialAttack(party.get((int)(Math.random() * 3))));
-              break;
-            case 2:
-              TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).support());
-              break;
+        if (enemies.get(whichPlayer).getHP() > 0) {
+          if(enemies.get(whichOpponent).getSpecialName().equals("graveyard")){
+            switch ( (int) (Math.random() * 3)){
+              case 0:
+                TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).attack(party.get((int)(Math.random() * 3))));
+                break;
+              case 1:
+                TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).specialAttack(party.get((int)(Math.random() * 3))));
+                break;
+              case 2:
+                TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).support());
+                break;
+            }
+          }
+          else{
+            switch ((int) (Math.random() * 4)){
+              case 0:
+                TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).attack(party.get((int)(Math.random() * 3))));
+                break;
+              case 1:
+                TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).specialAttack(party.get((int)(Math.random() * 3))));
+                break;
+              case 2:
+                TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).support());
+                break;
+              case 3:
+                TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).support(enemies));
+                break;
+            }
           }
         }
-        else{
-          switch ((int) (Math.random() * 4)){
-            case 0:
-              TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).attack(party.get((int)(Math.random() * 3))));
-              break;
-            case 1:
-              TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).specialAttack(party.get((int)(Math.random() * 3))));
-              break;
-            case 2:
-              TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).support());
-              break;
-            case 3:
-              TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichOpponent).support(enemies));
-              break;
-          }
+        else {
+          TextBox(7 + (whichOpponent * 4), 42, 39, 15 - (whichOpponent * 4), enemies.get(whichPlayer).toString() + " is dead and cannot move.");
         }
 
         String prompt = "press enter to see next turn";
