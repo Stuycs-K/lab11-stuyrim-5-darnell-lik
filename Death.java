@@ -41,6 +41,7 @@ public class Death extends Adventurer{
     else {
       damage = attack(other, damage);
     }
+    restoreSpecial((int)(Math.random() * 4) + 2);
     return this + " attacked "+ other + " and dealt "+ result + " points of damage";
   }
 
@@ -50,7 +51,13 @@ public class Death extends Adventurer{
       int souls = (int) ((Math.random() * (((getSpecial() - getSpecial() % 3) / 3 ))) + 1);
       restoreSpecial(-souls * 3);
       int damage = (int) (Math.random() * 5 )+ 6;
-      attack(other, damage + souls);//other.applyDamage(damage);
+      if (this.getdmgBoost() != 0) {
+        damage = attack(other, (int)(damage * 1.5));
+      }
+      else {
+        damage = attack(other, damage);
+      }
+      restoreSpecial((int)(Math.random() * 4) + 2);
       return this + " attacked " + other +  " and summoned " + souls + " souls from his graveyard dealing an extra " + (souls * 3) + " points of damage on top of " + damage;
     }
     else{
@@ -68,11 +75,13 @@ public class Death extends Adventurer{
       int souls = (int) ((Math.random() * (((getSpecial() - getSpecial() % 5) / 5 ))) + 1);
       setHP(getHP()+ (10*souls));
       restoreSpecial(-souls * 5);
+      restoreSpecial((int)(Math.random() * 4) + 2);
       return this+ " eats " + souls * 5 + " souls to heal" + 10 * souls +" HP";
     }
     else{
       setHP(getHP() + 5);
       restoreSpecial(-getSpecial());
+      restoreSpecial((int)(Math.random() * 4) + 2);
       return "Not enough souls in graveyard, all are sacrificed and 5 HP is gained";
     }
   }
