@@ -284,13 +284,10 @@ public class Game{
             inputs = input.split(" ");
           }
         }catch (Exception e) {}
-<<<<<<< HEAD
-        int target = Integer.parseInt(inputs[1]);
-=======
-
         int target = Integer.parseInt(inputs[1]);
 
->>>>>>> 6b49dbd800cac3c6a5f22ca0c4ce2aa8064d6876
+        target = Integer.parseInt(inputs[1]);
+
         if(input.startsWith("attack ") || input.startsWith("a ")){
           TextBox(2, 7, 39, 16, party.get(whichPlayer).attack(enemies.get(target)));
         }
