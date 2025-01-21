@@ -249,10 +249,9 @@ public class Game{
 
     //display this prompt at the start of the game.
     String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit:";
+    TextBox(28, 1, 80, 1, preprompt);
 
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
-      TextBox(28, 1, 80, 1, preprompt);
-      Text.go(29, 1);
 
       //Read user input
       input = userInput(in);
@@ -317,17 +316,15 @@ public class Game{
         if(whichPlayer < party.size()){
           //This is a player turn.
           //Decide where to draw the following prompt:
-          preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit:";
+          String prompt = "Enter command for "+party.get(whichPlayer)+": attack/special/support/quit:";
+          TextBox(28, 1, 80, 1, prompt);
 
 
         }else{
           //This is after the player's turn, and allows the user to see the enemy turn
           //Decide where to draw the following prompt:
           String prompt = "press enter to see monster's turn";
-          Text.go(28, 1);
-          Text.clearLine();
           TextBox(28, 1, 80, 1, prompt);
-
           partyTurn = false;
           whichOpponent = 0;
         }
