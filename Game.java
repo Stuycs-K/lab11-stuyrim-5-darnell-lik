@@ -289,19 +289,21 @@ public class Game{
         target = Integer.parseInt(inputs[1]);
 
         if(input.startsWith("attack ") || input.startsWith("a ")){
-          TextBox(2, 7, 39, 16, party.get(whichPlayer).attack(enemies.get(target)));
+          Text.go(30, 1);
+          System.out.print(whichPlayer);
+          TextBox(7 + (whichPlayer * 3), 2, 39, 16 - (whichPlayer * 3), party.get(whichPlayer).attack(enemies.get(target)));
         }
         else if(input.startsWith("special ") || input.startsWith("sp ")){
-          TextBox(2, 7, 39, 16, party.get(whichPlayer).specialAttack(enemies.get(target)));
+          TextBox(7 + (whichPlayer * 3), 2, 39, 16- (whichPlayer * 3), party.get(whichPlayer).specialAttack(enemies.get(target)));
         }
         else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
           if (target == 0) {
-            TextBox(2, 7, 39, 16, party.get(whichPlayer).support());
+            TextBox(7 + (whichPlayer * 3), 2, 39, 16- (whichPlayer * 3), party.get(whichPlayer).support());
           }
           else {
-            TextBox(2, 7, 39, 16, party.get(whichPlayer).support(party));
+            TextBox(7 + (whichPlayer * 3), 2, 39, 16- (whichPlayer * 3), party.get(whichPlayer).support(party));
           }
         }
         else {
