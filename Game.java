@@ -134,11 +134,15 @@ public class Game{
     * ***THIS ROW INTENTIONALLY LEFT BLANK***
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
+      int q = 0;
       for(int i = 0; i < party.size(); i ++)
       {
-        TextBox(startRow, 2 + (i * 26), 25, 1, party.get(i).getName());
-        TextBox(startRow + 1, 2 + (i * 26), 25, 1, "HP: " + party.get(i).getHP());
-        TextBox(startRow + 2, 2 + (i * 26), 25, 1, party.get(i).getSpecialName() + ": " + party.get(i).getSpecial() + "/" + party.get(i).getSpecialMax());
+        if(i == 2){
+          q = 2;
+        }
+        TextBox(startRow, 2 + (i * 26), 25 + q, 1, party.get(i).getName());
+        TextBox(startRow + 1, 2 + (i * 26), 25 + q, 1, "HP: " + party.get(i).getHP());
+        TextBox(startRow + 2, 2 + (i * 26), 25 + q, 1, party.get(i).getSpecialName() + ": " + party.get(i).getSpecial() + "/" + party.get(i).getSpecialMax());
       }
       /*
       TextBox(startRow, 2, 25, 1, party.get(0).getName());
