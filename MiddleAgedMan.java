@@ -43,7 +43,7 @@ public class MiddleAgedMan extends Adventurer{
     else {
       damage = attack(other, 4);
     }
-    return this + " attacked "+ other + " and dealt "+ damage + " points of damage";
+    return this + " attacked "+ other + " and dealt "+ damage + " points of damage.";
   }
 
   public String specialAttack(Adventurer other){
@@ -64,10 +64,11 @@ public class MiddleAgedMan extends Adventurer{
   }
 
   public String support(ArrayList<Adventurer> others){
-    String result = this + "works overtime to help his team dealing 6 damage to himself but makes each teammate take 50% less damage";
+    String result = this + " works overtime to help his team dealing 6 damage to himself but makes each teammate take 50% less damage.";
     for(int i = 0; i < others.size(); i++){
       others.get(i).applyReducedDamage(1);
     }
+    this.setHP(this.getHP() - 6);
     return result;
   }
 
@@ -75,6 +76,6 @@ public class MiddleAgedMan extends Adventurer{
     int hp = 8;
     setHP(getHP()+hp);
     if(getSpecial() != 0) restoreSpecial(-1);
-    return this+" drinks a coffee and heals " +hp+" HP";
+    return this+" drinks a coffee and heals " +hp+" HP.";
   }
 }
