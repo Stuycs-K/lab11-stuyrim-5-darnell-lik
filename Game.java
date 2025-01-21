@@ -15,7 +15,7 @@ public class Game{
     //this needs to be 02500 but it doesnt work for some reason
     //String dash = "\u0250";
     Text.go(1, 1);
-    for (int i = 0; i < 79; i++) {
+    for (int i = 0; i < 80; i++) {
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
     }
     for (int i = 1; i < 30; i++) {
