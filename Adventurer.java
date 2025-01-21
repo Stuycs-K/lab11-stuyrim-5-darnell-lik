@@ -67,6 +67,9 @@ public abstract class Adventurer{
   public void boostDamage(int rounds){
     dmgBoost = rounds;
   }
+  public void AttackMiss(int rounds){
+    AttackMiss = rounds;
+  }
   public void applyDamage(int amount){
     if( (chanceToMiss != 0) && !(Math.random() < odds) )
     {

@@ -15,7 +15,7 @@ public class Game{
     //this needs to be 02500 but it doesnt work for some reason
     //String dash = "\u0250";
     Text.go(1, 1);
-    for (int i = 0; i < 79; i++) {
+    for (int i = 0; i < 80; i++) {
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
     }
     for (int i = 1; i < 30; i++) {
@@ -111,7 +111,7 @@ public class Game{
     //return a random adventurer (choose between all available subclasses)
     //feel free to overload this method to allow specific names/stats.
     public static Adventurer createRandomAdventurer(){
-      int n = (int)(Math.random() * 4);
+      int n = (int)(Math.random() * 3);
       if (n == 0) {
         return new Grandma("grandma");
         //these return statements are placeholders until the other classes are made
@@ -134,6 +134,17 @@ public class Game{
     * ***THIS ROW INTENTIONALLY LEFT BLANK***
     */
     public static void drawParty(ArrayList<Adventurer> party,int startRow){
+      int q = 0;
+      for(int i = 0; i < party.size(); i ++)
+      {
+        if(i == 2){
+          q = 2;
+        }
+        TextBox(startRow, 2 + (i * 26), 25 + q, 1, party.get(i).getName());
+        TextBox(startRow + 1, 2 + (i * 26), 25 + q, 1, "HP: " + party.get(i).getHP());
+        TextBox(startRow + 2, 2 + (i * 26), 25 + q, 1, party.get(i).getSpecialName() + ": " + party.get(i).getSpecial() + "/" + party.get(i).getSpecialMax());
+      }
+      /*
       TextBox(startRow, 2, 25, 1, party.get(0).getName());
       TextBox(startRow + 1, 2, 25, 1, "HP: " + party.get(0).getHP());
       TextBox(startRow + 2, 2, 25, 1, party.get(0).getSpecialName() + ": " + party.get(0).getSpecial() + "/" + party.get(0).getSpecialMax());
@@ -142,9 +153,10 @@ public class Game{
       TextBox(startRow + 1, 28, 25, 1, "HP: " + party.get(1).getHP());
       TextBox(startRow + 2, 28, 25, 1, party.get(1).getSpecialName() + ": " + party.get(1).getSpecial() + "/" + party.get(1).getSpecialMax());
 
-      TextBox(startRow, 54, 26, 1, party.get(2).getName());
+      TextBox(startRow, 54, 25, 1, party.get(2).getName());
       TextBox(startRow + 1, 54, 26, 1, "HP: " + party.get(2).getHP());
       TextBox(startRow + 2, 54, 26, 1, party.get(2).getSpecialName() + ": " + party.get(2).getSpecial() + "/" + party.get(2).getSpecialMax());
+      */
     }
 
 
@@ -209,16 +221,22 @@ public class Game{
     //If only 1 enemy is added it should be the boss class.
     //start with 1 boss and modify the code to allow 2-3 adventurers later.
     ArrayList<Adventurer>enemies = new ArrayList<Adventurer>();
-    enemies.add(createRandomAdventurer());
-    enemies.add(createRandomAdventurer());
-    enemies.add(createRandomAdventurer());
-
+    int PartySize = (int)((Math.random() * 3) + 1);
+    if(PartySize == 1){
+      enemies.add( new Death("death"));
+    }
+    else{
+      while( PartySize > 0){
+        PartySize --;
+        enemies.add(createRandomAdventurer());
+      }
+    }
     //Adventurers you control:
     //Make an ArrayList of Adventurers and add 2-4 Adventurers to it.
     ArrayList<Adventurer> party = new ArrayList<>();
-    party.add(createRandomAdventurer());
-    party.add(createRandomAdventurer());
-    party.add(createRandomAdventurer());
+    for(int i = 0; i < 3; i++){
+      party.add(createRandomAdventurer());
+    }
 
     boolean partyTurn = true;
     int whichPlayer = 0;
@@ -296,6 +314,21 @@ public class Game{
         //Enemy action choices go here!
         /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>*/
         //YOUR CODE HERE
+        switch ((int) Math.random() * 4){
+          case 0:
+            enemies.get(whichOpponent).attack(party.get((int)(Math.random() * 3)));
+            break;
+          case 1:
+            enemies.get(whichOpponent).specialAttack(party.get((int)(Math.random() * 3)));
+            break;
+          case 2:
+            enemies.get(whichOpponent).support(enemies);
+            break;
+          case 3:
+            enemies.get(whichOpponent).support();
+            break;
+        }
+
         /*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 
