@@ -284,23 +284,23 @@ public class Game{
             inputs = input.split(" ");
           }
         }catch (Exception e) {}
-        
+
         int target = Integer.parseInt(inputs[1]);
-        
+
         if(input.startsWith("attack ") || input.startsWith("a ")){
-          TextBox(2, 7, 40, 20, party.get(whichPlayer).attack(enemies.get(target)));
+          TextBox(2, 7, 39, 16, party.get(whichPlayer).attack(enemies.get(target)));
         }
         else if(input.startsWith("special ") || input.startsWith("sp ")){
-          party.get(whichPlayer).specialAttack(enemies.get(target));
+          TextBox(2, 7, 39, 16, party.get(whichPlayer).specialAttack(enemies.get(target)));
         }
         else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
           if (target == 0) {
-            party.get(whichPlayer).support();
+            TextBox(2, 7, 39, 16, party.get(whichPlayer).support());
           }
           else {
-            party.get(whichPlayer).support(party);
+            TextBox(2, 7, 39, 16, party.get(whichPlayer).support(party));
           }
         }
         else {
