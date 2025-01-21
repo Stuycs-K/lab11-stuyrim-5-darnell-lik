@@ -18,13 +18,13 @@ public class Game{
     for (int i = 0; i < 80; i++) {
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
     }
-    for (int i = 1; i < 29; i++) {
+    for (int i = 1; i < 28; i++) {
       Text.go(i, 1);
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
       Text.go(i, 81);
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
     }
-    Text.go(28, 1);
+    Text.go(27, 1);
     for (int i = 0; i < 80; i++) {
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
     }
@@ -32,7 +32,7 @@ public class Game{
     for (int i = 0; i < 80; i++) {
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
     }
-    Text.go(23, 1);
+    Text.go(22, 1);
     for (int i = 0; i < 80; i++) {
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
     }
@@ -41,13 +41,13 @@ public class Game{
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
       Text.go(i, 53);
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
-      Text.go(i + 22, 27);
+      Text.go(i + 21, 27);
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
-      Text.go(i + 22, 53);
+      Text.go(i + 21, 53);
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
     }
     //DRAW MIDLINE
-    for(int i =0; i < 16; i ++){
+    for(int i =0; i < 15; i ++){
       Text.go(7 + i,41);
       System.out.print(Text.colorize("+", BORDER_COLOR, BORDER_BACKGROUND));
     }
@@ -180,20 +180,20 @@ public class Game{
   public static void drawScreen(ArrayList<Adventurer> party, ArrayList<Adventurer> enemies){
 
     //draw player party
-    drawParty(party, 24);
+    drawParty(party, 23);
     //draw enemy party
     drawParty(enemies, 2);
-    Text.go(30, 1);
+    Text.go(29, 1);
   }
 
   public static String userInput(Scanner in){
       //Move cursor to prompt location
-      Text.go(30, 1);
+      Text.go(29, 1);
       //show cursor
       Text.showCursor();
       String input = in.nextLine();
       //clear the text that was written
-      Text.go(30,1);
+      Text.go(29,1);
       Text.clearLine();
       return input;
   }
@@ -251,8 +251,8 @@ public class Game{
     String preprompt = "Enter command for "+party.get(whichPlayer)+": attack/special/quit:";
 
     while(! (input.equalsIgnoreCase("q") || input.equalsIgnoreCase("quit"))){
-      drawText(preprompt, 29, 1);
-      Text.go(30, 1);
+      drawText(preprompt, 28, 1);
+      Text.go(29, 1);
 
       //Read user input
       input = userInput(in);
@@ -291,19 +291,19 @@ public class Game{
         if(input.startsWith("attack ") || input.startsWith("a ")){
           Text.go(30, 1);
           System.out.print(whichPlayer);
-          TextBox(7 + (whichPlayer * 3), 2, 39, 16 - (whichPlayer * 3), party.get(whichPlayer).attack(enemies.get(target)));
+          TextBox(7 + (whichPlayer * 3), 2, 39, 15 - (whichPlayer * 3), party.get(whichPlayer).attack(enemies.get(target)));
         }
         else if(input.startsWith("special ") || input.startsWith("sp ")){
-          TextBox(7 + (whichPlayer * 3), 2, 39, 16- (whichPlayer * 3), party.get(whichPlayer).specialAttack(enemies.get(target)));
+          TextBox(7 + (whichPlayer * 3), 2, 39, 15- (whichPlayer * 3), party.get(whichPlayer).specialAttack(enemies.get(target)));
         }
         else if(input.startsWith("su ") || input.startsWith("support ")){
           //"support 0" or "su 0" or "su 2" etc.
           //assume the value that follows su  is an integer.
           if (target == 0) {
-            TextBox(7 + (whichPlayer * 3), 2, 39, 16- (whichPlayer * 3), party.get(whichPlayer).support());
+            TextBox(7 + (whichPlayer * 3), 2, 39, 15- (whichPlayer * 3), party.get(whichPlayer).support());
           }
           else {
-            TextBox(7 + (whichPlayer * 3), 2, 39, 16- (whichPlayer * 3), party.get(whichPlayer).support(party));
+            TextBox(7 + (whichPlayer * 3), 2, 39, 15- (whichPlayer * 3), party.get(whichPlayer).support(party));
           }
         }
         else {
